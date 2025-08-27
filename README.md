@@ -1,45 +1,26 @@
-# Projeto de Programação Orientada a Objetos em Java  
+## 📖 README - Projeto de Programa Orientado a Objetos
 
-## 📌 Descrição  
-Este projeto foi desenvolvido em **Java** com o objetivo de aplicar os principais conceitos da **Programação Orientada a Objetos (POO)**, estudados ao longo da disciplina.  
+### 📌 Descrição
+O Readme é uma plataforma de compra e venda de livros usados. Nosso objetivo é conectar leitores, oferecendo a oportunidade de adquirir obras literárias a preços acessíveis e dar uma nova vida a livros que já foram lidos.
 
-O sistema implementa uma solução simples e didática para **[INSIRA AQUI O TEMA DO PROJETO — ex.: gerenciamento de biblioteca, sistema de cadastro de alunos, controle de estoque, pet shop, etc.]**, permitindo ao usuário realizar operações básicas como **cadastro, consulta, atualização e exclusão de dados**.  
+### 🎯 Principais funcionalidades
+- Cadastrar um novo usuário como comprador;
+- Cadastrar um novo usuário como vendedor;
+- Registrar descrição do livro que será vendido;
+- Registrar feedback do livro comprado;
+- Procurar o livro por gêneros;
+- Procurar o livro por valor;
 
----
+### ⚙️ Tecnologias Utilizadas
+- Trello \ Quadro Kanban: organização e gestão do projeto
+- Figma: criação dos protótipos low-Fi
+- Git e Github: versionamento de código
+- VSCode: Ambiente de desenvolvimento integrado utilizado
+- Linguagem Java: utilizada para o desenvolvimento do projeto
 
-## 🧩 Conceitos de POO aplicados  
-- **Classes e Objetos**: modelagem de entidades do mundo real (*ex.: Livro, Cliente, Produto, Aluno*).  
-- **Encapsulamento**: atributos privados com acesso via getters e setters.  
-- **Herança**: classes organizadas em hierarquia para reutilização de código.  
-- **Polimorfismo**: sobrecarga e sobrescrita de métodos para comportamentos variados.  
-- **Abstração**: definição de classes/métodos genéricos aplicados em subclasses específicas.  
-
----
-
-## ⚙️ Funcionalidades principais  
-- 📌 Cadastro de novos registros  
-- 📋 Listagem de dados armazenados  
-- 🔍 Busca e consulta por critérios específicos  
-- ✏️ Atualização de informações  
-- ❌ Exclusão de registros  
-
----
-
-## 📂 Estrutura do Projeto  
-- `model/` → classes que representam as entidades do sistema  
-- `service/` → lógica de negócio  
-- `view/` → interface de interação com o usuário (console ou GUI)  
-- `main/` → classe principal que executa o sistema  
-
----
-
-## 🚀 Tecnologias utilizadas  
-- Java 17+  
-- Paradigma de Programação Orientada a Objetos  
-
----
-
-## 📖 Como executar  
-1. Clone este repositório:  
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+### 👥 Equipe e Contato
+- [Beatriz Paredes](https://www.linkedin.com/in/beatriz-paredes-do-nascimento-91664a182/)
+- [Catarina Loureiro](https://www.linkedin.com/in/catarina-virginia-lima-loureiro-xavier-439731338/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
+- [Cecília Medeiros](https://www.linkedin.com/in/medeiroscecilia22)
+- [Isabella Batista](https://www.linkedin.com/in/isabella-b-a096452b2/)
+- [Melissa Filgueiras](https://www.linkedin.com/in/melissafilgueiras/)
