@@ -1,7 +1,7 @@
 ## 📖 Projeto de Programa Orientado a Objetos
 
 ### Descrição
-O Findme é uma plataforma de compra e venda de livros usados. Nosso objetivo é conectar leitores, oferecendo a oportunidade de adquirir obras a preços acessíveis e dar uma nova vida a livros que já foram lidos.
+O Findme é uma plataforma de compra, venda e troca de livros usados. Nosso objetivo é conectar leitores, oferecendo a oportunidade de adquirir obras a preços acessíveis e dar uma nova vida a livros que já foram lidos.
 
 ### Principais funcionalidades
 - Cadastrar um novo usuário como comprador;
