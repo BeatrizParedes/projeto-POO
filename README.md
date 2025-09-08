@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="200" height="200" alt="verde" src="https://github.com/user-attachments/assets/fc2bdd29-6c42-44ae-a8e4-fd35a944d0c5" />
+</p>
+
 ## 📖 Projeto de Programa Orientado a Objetos
 
 ### Descrição
