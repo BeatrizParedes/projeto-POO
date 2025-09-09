@@ -37,7 +37,7 @@
 ### Etapas de desenvolvimento
 
 1. ✅ Entrega 1
-   1. Definição das [Histórias do Usuário](https://trello.com/b/8x2ey7KZ/poo-template) com os cenários de validação usando BDD;
+   1. Definição das [Histórias do Usuário](https://docs.google.com/document/d/1j7WJE1YVsLCOvbHUOMeQmpRQTE-h-v66JdSXZeaNqyo/edit?usp=sharing) com os cenários de validação usando BDD;
    2. Criação do [protótipo low-fi](https://www.figma.com/design/scm2xuBuUlC9FUqtNXtmmo/Untitled?node-id=0-1&t=2fiLcEBEE95TJx3L-1);
    3. Criação do [Screencast](https://youtu.be/X20zUMc_62g?si=DaMEYo_oWMpiiLuS) da navegação entre as telas do protótipo.
 
