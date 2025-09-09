@@ -1,6 +1,5 @@
-<p align="center">
-  <img width="200" height="200" alt="verde" src="https://github.com/user-attachments/assets/fc2bdd29-6c42-44ae-a8e4-fd35a944d0c5" />
-</p>
+<img width="851" height="315" alt="capafindme" src="https://github.com/user-attachments/assets/6b7420f4-43ef-4376-ae2c-2e0b1a5d6e3b" />
+
 
 # FindME
 
@@ -33,6 +32,7 @@
 - Criação dos protótipos low-Fi
 
 [![YouTube](https://img.shields.io/badge/Video-YouTube-%2380C080?logo=youtube&logoColor=white)](#)
+[![Assista no YouTube](https://img.youtube.com/vi/X20zUMc_62g/0.jpg)](https://www.youtube.com/watch?v=X20zUMc_62g)
 - Hospedagem de vídeos de screencasts das etapas de desenvolvimento
 
 ### Etapas de desenvolvimento
