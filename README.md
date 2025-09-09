@@ -32,7 +32,6 @@
 - Criação dos protótipos low-Fi
 
 [![YouTube](https://img.shields.io/badge/Video-YouTube-%2380C080?logo=youtube&logoColor=white)](#)
-[![Assista no YouTube](https://img.youtube.com/vi/X20zUMc_62g/0.jpg)](https://www.youtube.com/watch?v=X20zUMc_62g)
 - Hospedagem de vídeos de screencasts das etapas de desenvolvimento
 
 ### Etapas de desenvolvimento
