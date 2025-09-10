@@ -37,7 +37,7 @@
 ### Etapas de desenvolvimento
 
 1. ✅ Entrega 1
-   1. Definição das [Histórias do Usuário](https://docs.google.com/document/d/1j7WJE1YVsLCOvbHUOMeQmpRQTE-h-v66JdSXZeaNqyo/edit?usp=sharing) com os cenários de validação usando BDD;
+   1. Definição das [histórias do Usuário](https://docs.google.com/document/d/1j7WJE1YVsLCOvbHUOMeQmpRQTE-h-v66JdSXZeaNqyo/edit?usp=sharing) com os cenários de validação usando BDD;
    2. Criação do [protótipo low-fi](https://www.figma.com/design/scm2xuBuUlC9FUqtNXtmmo/Untitled?node-id=0-1&t=2fiLcEBEE95TJx3L-1);
    3. Criação do [Screencast](https://youtu.be/X20zUMc_62g?si=DaMEYo_oWMpiiLuS) da navegação entre as telas do protótipo.
 
@@ -48,8 +48,14 @@
 
 
 ### Equipe e Contato
-- [Beatriz Paredes](https://www.linkedin.com/in/beatriz-paredes-do-nascimento-91664a182/)
-- [Catarina Loureiro](https://www.linkedin.com/in/catarina-virginia-lima-loureiro-xavier-439731338/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
-- [Cecília Medeiros](https://www.linkedin.com/in/medeiroscecilia22)
-- [Isabella Batista](https://www.linkedin.com/in/isabella-b-a096452b2/)
-- [Melissa Filgueiras](https://www.linkedin.com/in/melissafilgueiras/)
+
+| Integrante | Perfil |
+|------------|--------|
+| <div style="width:80px; height:80px; overflow:hidden; border-radius:8px;"> <img src="https://github.com/user-attachments/assets/ab3d5f4b-1a84-4660-b6ec-bae496e9dc1a" width="80" style="object-fit:cover;"> </div> | **Beatriz Paredes** <br> [LinkedIn](https://www.linkedin.com/in/beatriz-paredes-do-nascimento-91664a182/) |
+| <div style="width:80px; height:80px; overflow:hidden; border-radius:8px;"> <img src="https://github.com/user-attachments/assets/c3b643ec-ebe1-4c73-991f-b7b60d6045bb" width="80" style="object-fit:cover;"> </div> | **Catarina Loureiro** <br> [LinkedIn](https://www.linkedin.com/in/catarina-virginia-lima-loureiro-xavier-439731338/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app) |
+| <div style="width:80px; height:80px; overflow:hidden; border-radius:8px;"> <img src="https://github.com/user-attachments/assets/5c5ebd9a-bd8d-4600-bf45-ae54c9ccd5bc" width="80" style="object-fit:cover;"> </div> | **Cecília Medeiros** <br> [LinkedIn](https://www.linkedin.com/in/medeiroscecilia22) |
+| <div style="width:80px; height:80px; overflow:hidden; border-radius:8px;"> <img src="img/isabella.jpg" width="80" style="object-fit:cover;"> </div> | **Isabella Batista** <br> [LinkedIn](https://www.linkedin.com/in/isabella-b-a096452b2/) |
+| <div style="width:80px; height:80px; overflow:hidden; border-radius:8px;"> <img src="img/melissa.jpg" width="80" style="object-fit:cover;"> </div> | **Melissa Filgueiras** <br> [LinkedIn](https://www.linkedin.com/in/melissafilgueiras/) |
+
+
+
