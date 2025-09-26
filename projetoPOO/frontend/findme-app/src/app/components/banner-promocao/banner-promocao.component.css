@@ -1,0 +1,14 @@
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e25300;
+  color: white;
+  padding: 24px;
+  border-radius: 16px;
+  margin: 24px;
+}
+
+.banner img {
+  height: 120px;
+}

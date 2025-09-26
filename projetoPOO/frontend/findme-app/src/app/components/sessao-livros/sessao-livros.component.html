@@ -1,0 +1,12 @@
+<section class="sessao">
+  <h2>{{ titulo }}</h2>
+  <div class="grid">
+    <app-card-livro
+      *ngFor="let livro of livros"
+      [titulo]="livro.titulo"
+      [preco]="livro.preco"
+      [imagem]="livro.imagem"
+      [acao]="livro.acao">
+    </app-card-livro>
+  </div>
+</section>

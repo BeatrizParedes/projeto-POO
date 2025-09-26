@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #fdf6ee;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+  height: 48px;
+}
+
+.busca {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 24px;
+  padding: 8px 16px;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
