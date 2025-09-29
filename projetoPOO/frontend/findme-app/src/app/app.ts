@@ -20,15 +20,16 @@ import { FooterComponent } from './components/footer/footer.component';
 })
 export class AppComponent {
   novidades = [
-    { titulo: 'Flores para Algernon', preco: 'R$ 48,50', imagem: 'assets/algernon.jpg', acao: 'Comprar' },
-    { titulo: 'Drácula', preco: 'R$ 48,50', imagem: 'assets/dracula.jpg', acao: 'Comprar' }
+    { titulo: 'Flores para Algernon', preco: 'R$ 48,50', imagem: '/algernon.png', acao: 'Comprar' },
+    { titulo: 'Drácula', preco: 'R$ 48,50', imagem: '/dracula.png', acao: 'Comprar' },
+
   ];
 
   ultimasCompras = [
-    { titulo: 'É Assim Que Acaba', preco: 'R$ 32,55', imagem: 'assets/eassim.jpg', acao: 'Detalhes' }
+    { titulo: 'É Assim Que Acaba', preco: 'R$ 32,55', imagem: '/eassim.png', acao: 'Detalhes' }
   ];
 
   sugestoes = [
-    { titulo: 'Vermelho, branco e sangue azul', preco: 'R$ 32,55', imagem: 'assets/vermelho.jpg', acao: 'Detalhes' }
+    { titulo: 'Vermelho, branco e sangue azul', preco: 'R$ 32,55', imagem: '/vermelho.png', acao: 'Detalhes' }
   ];
 }

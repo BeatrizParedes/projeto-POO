@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(to right, #a3c29b, #5d806f);
+  background: linear-gradient(to right, #5d806f, #a3c29b);
   color: white;
   padding: 24px;
   display: flex;
@@ -9,5 +9,5 @@
 }
 
 .footer img {
-  height: 80px;
+  height: 80%;
 }

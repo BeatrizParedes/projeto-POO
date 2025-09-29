@@ -1,14 +1,29 @@
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;             /* ocupa toda a largura do container */
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0px 0;
+  position: relative;
+}
+
 .banner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background: #e25300;
-  color: white;
-  padding: 24px;
+  width: 100%;             /* ocupa toda a largura do container */
   border-radius: 16px;
-  margin: 24px;
+  overflow: hidden;
+  margin: 0px 0;
+  position: relative;
 }
 
 .banner img {
-  height: 120px;
+  width: 100%;             /* ocupa toda largura do banner */
+  height: auto;            /* mantém proporção da imagem */
+  display: block;
+  border-radius: inherit;  /* opcional: bordas arredondadas iguais ao banner */
 }
+
