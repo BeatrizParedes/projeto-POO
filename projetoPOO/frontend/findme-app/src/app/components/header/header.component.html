@@ -1,6 +1,31 @@
-<header>
-  <h1>Minha Livraria</h1>
+<header class="header-container">
+  <!-- Campo de pesquisa -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      placeholder="Search"
+      class="search-input"
+    />
+    <button class="search-btn">
+      <span class="material-icons">search</span>
+    </button>
+  </div>
+
+  <!-- Botão de adicionar livro -->
   <nav>
     <button (click)="abrirCadastro()">Cadastrar Livro</button>
   </nav>
+
+  <!-- Avatar e usuário -->
+  <div class="user-info">
+    <img
+      src="assets/avatar.png"
+      alt="Avatar"
+      class="avatar"
+    />
+    <div class="user-details">
+      <span class="username">Beatriz Paredes</span>
+      <span class="role">Designer Gráfico</span>
+    </div>
+  </div>
 </header>

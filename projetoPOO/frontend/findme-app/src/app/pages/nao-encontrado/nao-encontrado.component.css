@@ -1,14 +1,22 @@
-/* Estilo do container principal */
+/* Container principal */
+.not-found-container {
+  min-height: 100vh;
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho (mesmo do header anterior) */
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #d9531e; /* Laranja do seu header */
+  background-color: #d9531e;
   padding: 0.5rem 1.5rem;
-  border-radius: 50px;
+  border-radius: 0 0 30px 30px;
 }
 
-/* Área da pesquisa */
+/* Barra de pesquisa */
 .search-wrapper {
   display: flex;
   align-items: center;
@@ -17,16 +25,14 @@
   overflow: hidden;
 }
 
-/* Input da pesquisa menor */
 .search-input {
-  width: 220px;          /* <-- reduzi a largura */
+  width: 220px;
   padding: 0.4rem 0.8rem;
   border: none;
   outline: none;
   font-size: 0.9rem;
 }
 
-/* Botão da lupa */
 .search-btn {
   background: none;
   border: none;
@@ -56,7 +62,7 @@
   background-color: #f1f1f1;
 }
 
-/* Avatar e informações do usuário */
+/* Avatar e informações */
 .user-info {
   display: flex;
   align-items: center;
@@ -83,4 +89,35 @@
 .role {
   font-size: 0.8rem;
   opacity: 0.9;
+}
+
+/* Conteúdo principal */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Card de mensagem */
+.message-card {
+  background-color: #fff;
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+}
+
+.message-card h1 {
+  font-size: 2rem;
+  color: #d9531e;
+  margin-bottom: 1rem;
+}
+
+.message-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
 }

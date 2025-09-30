@@ -1,2 +1,51 @@
-<textarea id="descricao" [(ngModel)]="livro.descricao" name="descricao" rows="5"></textarea>
-<p>Descrição: {{ livro.descricao }}</p>
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="assets/avatar.png" alt="Avatar" class="avatar">
+      <h3>Beatriz Paredes</h3>
+      <p>Designer Gráfico</p>
+    </div>
+
+    <nav class="menu">
+      <button>Meu Perfil</button>
+      <button class="active">Cadastro de livro</button>
+      <button>Consulta de livro</button>
+      <button>Atualização de livro</button>
+      <button>Lembretes</button>
+    </nav>
+
+    <button class="logout">Sair</button>
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <main class="content">
+    <h2>CADASTRO DE LIVRO</h2>
+
+    <form class="form">
+      <input type="text" placeholder="Preencha título do livro.*" required>
+      <input type="text" placeholder="Preencha autor do livro.*" required>
+      <input type="text" placeholder="Preencha o gênero do livro.*" required>
+      <textarea placeholder="Insira a descrição do livro.*"></textarea>
+
+      <label class="price-label">Preencha o valor do livro:</label>
+      <div class="price">
+        <span>R$</span>
+        <input type="number" placeholder="*" required>
+      </div>
+
+      <div class="upload-boxes">
+        <div class="upload">Clique aqui para adicionar imagens do livro.*</div>
+        <div class="upload small">+</div>
+        <div class="upload small">+</div>
+      </div>
+
+      <div class="terms">
+        <input type="checkbox" required>
+        <label>Eu concordo com os <a href="#">termos de uso</a> da plataforma</label>
+      </div>
+
+      <button type="submit" class="submit-btn">CADASTRAR LIVRO</button>
+    </form>
+  </main>
+</div>
