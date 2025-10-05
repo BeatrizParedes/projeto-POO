@@ -14,10 +14,20 @@
 - Registrar feedback do livro comprado;
 - Cadastrar um livro para venda;
 
+  ## Para rodar front:
+  ```
+     cd findme-app
+     ng serve --proxy-config proxy.conf.json
+  ```
+  ## Para rodar back:
+  ```
+    mvn spring-boot:run
+  ```
+
 ### 🔧 Ferramentas Tecnológicas Utilizadas
 
-![Java](https://img.shields.io/badge/Language-Java-%23006633?logo=java&logoColor=white)
-- Linguagem utilizada para o desenvolvimento do FindME.
+![Java v21](https://img.shields.io/badge/Language-Java-%23006633?logo=java&logoColor=white)
+- Linguagem utilizada para o desenvolvimento do FindME Java v21 + maven.
 
 [![GitHub](https://img.shields.io/badge/Code-GitHub-%23009933?logo=github&logoColor=white)](https://github.com/BeatrizParedes/projeto-POO)
 - Versionamento de código
