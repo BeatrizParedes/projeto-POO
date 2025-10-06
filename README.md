@@ -17,7 +17,7 @@
   ## Para rodar front:
   ```
      cd findme-app
-     ng serve --proxy-config proxy.conf.json
+     ng serve 
   ```
   ## Para rodar back:
   ```
