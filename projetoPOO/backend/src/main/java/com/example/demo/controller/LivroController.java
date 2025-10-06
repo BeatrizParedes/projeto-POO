@@ -7,55 +7,41 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/livros")
-
+@CrossOrigin(origins = "http://localhost:4200") // Angular rodando local
 public class LivroController {
-    
-    private final LivroService livroService;
+
     @Autowired
-    public LivroController(LivroService livroService){
-        this.livroService = livroService;
-    }
+    private LivroService livroService;
 
     @GetMapping
-    public List<Livro> listartodos(){
+    public List<Livro> listar() {
         return livroService.listartodos();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Livro> buscaporID(@PathVariable Long id){
-        Optional<Livro> livro = livroService.buscaporID(id);
-        return livro.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-    
-    @GetMapping("/titulo")
-    public List<Livro> buscarporTitulo(@RequestParam String titulo){
-        return livroService.buscaporTitulo(titulo);
-    }
-
-    @GetMapping("/genero")
-    public List<Livro> buscarporGenero(@RequestParam String genero){
-        return livroService.buscarporGenero(genero);
-    }
-
-    @GetMapping("/preco")
-    public List<Livro> buscarporPreco(@RequestParam double preco){
-        return livroService.buscarporPreco(preco);
-    }
-
     @PostMapping
-    public Livro salvar(@RequestBody Livro livro){
+    public Livro salvar(@RequestBody Livro livro) {
         return livroService.salvar(livro);
     }
 
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Livro>> buscarLivros(@RequestParam(required = false) String titulo) {
+        List<Livro> livros = livroService.buscarComFiltros(titulo);
+        return ResponseEntity.ok(livros);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Livro> buscarPorId(@PathVariable Long id) {
+        return livroService.buscaporID(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarporID(@PathVariable Long id){
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         livroService.deletarporID(id);
         return ResponseEntity.noContent().build();
     }
-    
-
 }

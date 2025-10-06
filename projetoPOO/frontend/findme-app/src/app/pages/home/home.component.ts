@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LivroService, Livro } from '../../services/livro.service';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { BannerPromocaoComponent } from '../../components/banner-promocao/banner-promocao.component';
@@ -18,17 +19,18 @@ import { SessaoLivrosComponent } from '../../components/sessao-livros/sessao-liv
     SessaoLivrosComponent
   ]
 })
-export class HomeComponent {
-  novidades = [
-    { titulo: 'O Grande Gatsby', autor: 'F. Scott Fitzgerald', preco: 45.90 },
-    { titulo: '1984', autor: 'George Orwell', preco: 38.50 }
-  ];
+export class HomeComponent implements OnInit {
+  novidades: Livro[] = [];
+  ultimasCompras: Livro[] = [];
+  sugestoes: Livro[] = [];
 
-  ultimasCompras = [
-    { titulo: 'Dom Casmurro', autor: 'Machado de Assis', preco: 29.90 }
-  ];
+  constructor(private livrosApi: LivroService) {}
 
-  sugestoes = [
-    { titulo: 'A Revolução dos Bichos', autor: 'George Orwell', preco: 32.00 }
-  ];
+  ngOnInit(): void {
+    this.livrosApi.listar().subscribe((lista) => {
+      this.novidades = lista.slice(0, 6);
+      this.ultimasCompras = lista.slice(6, 12);
+      this.sugestoes = lista.slice(12, 18);
+    });
+  }
 }

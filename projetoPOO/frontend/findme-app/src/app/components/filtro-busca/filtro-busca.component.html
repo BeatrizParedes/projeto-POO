@@ -8,6 +8,21 @@
   <select>
     <option>Valor</option>
   </select>
-  <input type="text" placeholder="Título, autor, gênero" />
-  <button>Buscar</button>
+
+  <input
+    type="text"
+    placeholder="Título, autor, gênero"
+    [(ngModel)]="_titulo"
+  />
+  <button (click)="buscar()">Buscar</button>
 </div>
+
+<div class="resultado" *ngIf="_livros.length > 0">
+  <ul>
+    <li *ngFor="let livro of _livros">
+      <strong>{{ livro.titulo }}</strong> — {{ livro.autor }} (R$ {{ livro.preco }})
+    </li>
+  </ul>
+</div>
+
+<p *ngIf="_mensagem" style="margin-top: 10px; color: gray;">{{ _mensagem }}</p>

@@ -59,7 +59,8 @@
               "buildTarget": "findme-app:build:production"
             },
             "development": {
-              "buildTarget": "findme-app:build:development"
+              "buildTarget": "findme-app:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
