@@ -52,9 +52,10 @@
    3. Criação do [Screencast](https://youtu.be/X20zUMc_62g?si=DaMEYo_oWMpiiLuS) da navegação entre as telas do protótipo.
 
 
-2. ✖️ Entrega 2 
-3. ✖️ Entrega 3 
-4. ✖️ Entrega 4 
+2. ✖️ Entrega 2
+   1. Atualização do [Screencast](https://youtu.be/2Onn6ZVlKHg?si=O85p5YDfxqIJux6M) da navegação entre as telas das histórias implementadas.
+4. ✖️ Entrega 3 
+5. ✖️ Entrega 4 
 
 
 ### Equipe e Contato
