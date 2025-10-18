@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "lista_desejos")
-public class ListaDesejos {
+public class ListaDesejo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +18,10 @@ public class ListaDesejos {
     // Aqui poderia haver um relacionamento com o usuário, se quiser futuramente
     private String nomeUsuario;
 
-    public ListaDesejos() {
+    public ListaDesejo() {
     }
 
-    public ListaDesejos(Livro livro, String nomeUsuario) {
+    public ListaDesejo(Livro livro, String nomeUsuario) {
         this.livro = livro;
         this.nomeUsuario = nomeUsuario;
     }

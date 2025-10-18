@@ -30,7 +30,11 @@ public class LivroService {
         livroRepository.deleteById(id);
     }
 
-    public List<Livro> buscarComFiltros(String titulo) {
-        return livroRepository.filtrarLivros(titulo != null && !titulo.isEmpty() ? titulo : null);
+    public List<Livro> buscarComFiltros(String titulo, String genero, Double preco) {
+        return livroRepository.filtrarLivros(
+                titulo != null && !titulo.isEmpty() ? titulo : null,
+                genero != null && !genero.isEmpty() ? genero : null,
+                preco != null ? preco : null
+        );
     }
 }

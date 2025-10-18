@@ -14,6 +14,11 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
     List<Livro> findByTituloContainingIgnoreCase(String titulo);
 
     // Método para filtros genéricos
-    @Query("SELECT l FROM Livro l WHERE (:titulo IS NULL OR LOWER(l.titulo) LIKE LOWER(CONCAT('%', :titulo, '%')))")
-    List<Livro> filtrarLivros(@Param("titulo") String titulo);
+    @Query("SELECT l FROM Livro l" +
+    " WHERE (:titulo IS NULL OR LOWER(l.titulo) LIKE LOWER(CONCAT('%', :titulo, '%')))" +
+    " AND (:genero IS NULL OR LOWER(l.genero) LIKE LOWER(CONCAT('%', :genero, '%')))" +
+    " AND (:preco IS NULL OR l.preco = :preco)")
+    List<Livro> filtrarLivros(@Param("titulo") String titulo,
+                               @Param("genero") String genero,
+                               @Param("preco") Double preco);
 }

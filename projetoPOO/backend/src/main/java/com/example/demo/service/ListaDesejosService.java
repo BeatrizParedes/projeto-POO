@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.ListaDesejos;
+import com.example.demo.model.ListaDesejo;
 import com.example.demo.model.Livro;
 import com.example.demo.repository.ListaDesejosRepository;
 import com.example.demo.repository.LivroRepository;
@@ -19,16 +19,16 @@ public class ListaDesejosService {
     private LivroRepository livroRepository;
 
     // Adicionar um livro à lista de desejos
-    public ListaDesejos adicionar(Long livroId, String nomeUsuario) {
+    public ListaDesejo adicionar(Long livroId, String nomeUsuario) {
         Livro livro = livroRepository.findById(livroId)
                 .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
 
-        ListaDesejos item = new ListaDesejos(livro, nomeUsuario);
+        ListaDesejo item = new ListaDesejo(livro, nomeUsuario);
         return listaDesejosRepository.save(item);
     }
 
     // Listar todos os desejos de um usuário
-    public List<ListaDesejos> listar(String nomeUsuario) {
+    public List<ListaDesejo> listar(String nomeUsuario) {
         return listaDesejosRepository.findByNomeUsuario(nomeUsuario);
     }
 

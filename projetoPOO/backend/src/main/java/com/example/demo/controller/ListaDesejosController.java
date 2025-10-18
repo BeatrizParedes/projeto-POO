@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.ListaDesejos;
+import com.example.demo.model.ListaDesejo;
 import com.example.demo.service.ListaDesejosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,18 +18,18 @@ public class ListaDesejosController {
 
     // Adicionar um livro à lista de desejos
     @PostMapping("/adicionar/{livroId}")
-    public ResponseEntity<ListaDesejos> adicionar(
+    public ResponseEntity<ListaDesejo> adicionar(
             @PathVariable Long livroId,
             @RequestParam String nomeUsuario) {
 
-        ListaDesejos novoItem = listaDesejosService.adicionar(livroId, nomeUsuario);
+        ListaDesejo novoItem = listaDesejosService.adicionar(livroId, nomeUsuario);
         return ResponseEntity.ok(novoItem);
     }
 
     // Listar desejos por usuário
     @GetMapping
-    public ResponseEntity<List<ListaDesejos>> listar(@RequestParam String nomeUsuario) {
-        List<ListaDesejos> lista = listaDesejosService.listar(nomeUsuario);
+    public ResponseEntity<List<ListaDesejo>> listar(@RequestParam String nomeUsuario) {
+        List<ListaDesejo> lista = listaDesejosService.listar(nomeUsuario);
         return ResponseEntity.ok(lista);
     }
 
