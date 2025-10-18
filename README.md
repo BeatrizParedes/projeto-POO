@@ -16,6 +16,7 @@
 
   ## Para rodar front:
   ```
+     npm install
      cd findme-app
      ng serve 
   ```
