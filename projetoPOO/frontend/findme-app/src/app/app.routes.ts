@@ -15,7 +15,14 @@ export const routes: Routes = [
     title: 'Findme | Cadastro de Livros'
   },
   {
-    path: '**',                       // rota coringa
+    path: 'livros/:id',
+    loadComponent: () =>
+      import('./pages/livro-detalhes/livro-detalhes.component')
+        .then(m => m.LivroDetalhesComponent),
+    title: 'Findme | Detalhes do Livro'
+  },
+  {
+    path: '**',
     component: NaoEncontradoComponent,
     title: 'Findme | Página Não Encontrada'
   }

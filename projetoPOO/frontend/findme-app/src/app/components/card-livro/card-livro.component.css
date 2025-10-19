@@ -4,11 +4,20 @@
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .card img {
   height: 160px;
   margin-bottom: 12px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .card h3 {
@@ -29,4 +38,26 @@ button {
   border-radius: 8px;
   cursor: pointer;
   margin-top: 8px;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #d04b00;
+}
+
+.favorito {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 20px;
+  color: #e25300;
+  cursor: pointer;
+}
+
+.favorito .fa-heart-o {
+  color: #aaa;
+}
+
+.favorito .fa-heart {
+  color: #e25300;
 }
