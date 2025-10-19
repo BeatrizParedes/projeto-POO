@@ -1,0 +1,227 @@
+/* Container Principal */
+.feedback-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f6f2; /* Cor de fundo creme/clara */
+  font-family: Arial, sans-serif;
+}
+
+/* Header/Perfil */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.feedback-text {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  background-color: #f7a98a; /* Cor de fundo do perfil */
+  border-radius: 25px;
+  padding: 5px 15px 5px 5px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  color: white;
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+  background-color: #e0906e; /* Cor da barra */
+  height: 40px;
+  border-radius: 20px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.search-input {
+  background: none;
+  border: none;
+  width: 100%;
+  color: white;
+  font-size: 1em;
+}
+
+/* Título Principal */
+.main-title {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1.8em;
+  color: #6d4239; /* Cor marrom escura */
+}
+
+/* Card de Feedback do Livro */
+.feedback-card {
+  display: flex;
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Info do Livro (Lado Esquerdo) */
+.book-info {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 40%;
+}
+
+.book-cover {
+  width: 100px;
+  height: auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title {
+  font-weight: bold;
+  color: #6d4239;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.book-price {
+  color: #e0906e;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.local-link {
+  font-size: 0.8em;
+  color: #e0906e;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.buy-button {
+  background-color: #e0906e;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Área de Rating e Comentário (Lado Direito) */
+.rating-area {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.stars-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.star-icon {
+  font-size: 2em;
+  color: #ccc; /* Cor da estrela vazia */
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star-icon.filled {
+  color: #ffc107; /* Cor da estrela cheia (amarelo/laranja) */
+}
+
+.comment-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  font-size: 1em;
+}
+
+.validation-error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+/* Banner de Promoção */
+.promotion-banner {
+  background-color: #d17849; /* Cor principal do banner */
+  border-radius: 15px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  color: white;
+}
+
+.banner-content {
+  flex-grow: 1;
+}
+
+.banner-text {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.banner-title {
+  font-size: 3em;
+  margin: 0;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.highlight {
+  color: #6d4239; /* Cor de destaque no 'O' */
+}
+
+.banner-slogan {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.promotion-button {
+  background-color: #c95c32; /* Cor do botão dentro do banner */
+  color: white;
+  border: 1px solid white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.cat-illustration {
+    /* Representação simplificada da ilustração do gato */
+    width: 150px;
+    height: 150px;
+    /* Ajuste o background para a sua imagem de gato real */
+    background-color: #4a6a57; /* Cor de preenchimento para visualização */
+    border-radius: 50%;
+    margin-left: 20px;
+    /* Adicione mais estilos para replicar a cúpula/brilho */
+}

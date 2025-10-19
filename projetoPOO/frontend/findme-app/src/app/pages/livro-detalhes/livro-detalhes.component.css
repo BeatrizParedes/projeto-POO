@@ -1,0 +1,76 @@
+.container {
+  background-color: #FFF6F0;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.barra-pesquisa {
+  width: 90%;
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid #E0A37C;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+.livro-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.livro-img {
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.info-livro {
+  max-width: 400px;
+}
+
+.autor {
+  font-size: 14px;
+  color: #888;
+  margin: -5px 0 10px;
+}
+
+.avaliacao {
+  font-size: 14px;
+}
+
+.comprar {
+  background-color: #C9684A;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.banner {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, #C9684A, #F5D5B2);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.texto-banner {
+  font-size: 20px;
+  color: white;
+}
+
+.gatinho {
+  width: 100px;
+}

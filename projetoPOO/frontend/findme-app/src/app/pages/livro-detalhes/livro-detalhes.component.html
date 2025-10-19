@@ -1,0 +1,36 @@
+<div class="container">
+  <input class="barra-pesquisa" placeholder="Pesquisar título do livro">
+
+  <div class="conteudo">
+    <h2>Parece que temos o que você procura</h2>
+
+    <div class="livro-container">
+      <img [src]="livro.imagem" alt="{{livro.titulo}}" class="livro-img">
+
+      <div class="info-livro">
+        <h3>{{ livro.titulo }}</h3>
+        <p class="autor">{{ livro.autor }}</p>
+
+        <div class="avaliacao">
+          ⭐⭐⭐⭐⭐ <span>{{ livro.avaliacao }} por R$ {{ livro.preco }}</span>
+        </div>
+
+        <button class="comprar">Comprar</button>
+
+        <p class="descricao">{{ livro.descricao }}</p>
+
+        <p class="veja-mais">Veja mais</p>
+      </div>
+    </div>
+
+   
+    <div class="banner">
+      <div class="texto-banner">
+        DIA NACIONAL DO LIVRO 📚  
+        <br> COMPRE 1, LEVE 2
+      </div>
+
+      <img src="assets/img/gatinho.png" class="gatinho" alt="gatinho">
+    </div>
+  </div>
+</div>

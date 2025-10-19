@@ -1,29 +1,33 @@
-<!-- Cabeçalho -->
+<!-- Header -->
 <app-header></app-header>
 
-<!-- Banner de promoção -->
-<app-banner-promocao></app-banner-promocao>
+<!-- Banner -->
+<section class="banner-wrapper">
+  <app-banner-promocao></app-banner-promocao>
+</section>
 
-<!-- Filtros de busca -->
-<app-filtro-busca></app-filtro-busca>
+<!-- Filtro -->
+<section class="filtro-wrapper">
+  <app-filtro-busca></app-filtro-busca>
+</section>
 
-<!-- Sessão de novidades -->
-<app-sessao-livros
-  titulo="Novidades"
-  [livros]="novidades">
-</app-sessao-livros>
+<!-- Sessões de livros -->
+<main class="conteudo-home">
+  <app-sessao-livros
+    titulo="Novidade"
+    [livros]="novidades">
+  </app-sessao-livros>
 
-<!-- Sessão baseada nas últimas compras -->
-<app-sessao-livros
-  titulo="Baseado nas suas últimas compras"
-  [livros]="ultimasCompras">
-</app-sessao-livros>
+  <app-sessao-livros
+    titulo="Baseado nas suas últimas compras"
+    [livros]="ultimasCompras">
+  </app-sessao-livros>
 
-<!-- Sessão de sugestões -->
-<app-sessao-livros
-  titulo="Achamos que você vai amar isso"
-  [livros]="sugestoes">
-</app-sessao-livros>
+  <app-sessao-livros
+    titulo="Achamos que você vai amar isso"
+    [livros]="sugestoes">
+  </app-sessao-livros>
+</main>
 
-<!-- Rodapé -->
+<!-- Footer -->
 <app-footer></app-footer>

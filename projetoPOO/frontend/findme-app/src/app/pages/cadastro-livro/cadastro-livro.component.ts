@@ -8,7 +8,7 @@ import { LivroService, Livro } from '../../services/livro.service';
   templateUrl: './cadastro-livro.component.html',
   styleUrls: ['./cadastro-livro.component.css'],
   standalone: true,
-  imports: [FormsModule]     // <- aqui você importa o FormsModule
+  imports: [FormsModule]     
 })
 export class CadastroLivroComponent {
   livro: Livro = { titulo: '', autor: '', preco: 0, descricao: '', genero: '' };
