@@ -1,0 +1,15 @@
+<div *ngIf="carregando" class="loading">
+  Carregando detalhes do livro...
+</div>
+
+<div *ngIf="!carregando && livro" class="detalhes">
+  <h2>{{ livro.titulo }}</h2>
+  <p><strong>Autor:</strong> {{ livro.autor }}</p>
+  <p *ngIf="livro.genero"><strong>Gênero:</strong> {{ livro.genero }}</p>
+  <p *ngIf="livro.descricao"><strong>Descrição:</strong> {{ livro.descricao }}</p>
+  <p><strong>Preço:</strong> R$ {{ livro.preco | number:'1.2-2' }}</p>
+</div>
+
+<div *ngIf="!carregando && !livro">
+  <p>Livro não encontrado.</p>
+</div>
