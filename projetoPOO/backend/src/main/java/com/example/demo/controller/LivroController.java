@@ -23,6 +23,7 @@ public class LivroController {
 
     @PostMapping
     public Livro salvar(@RequestBody Livro livro) {
+        System.out.println("Recebido: " + livro.getTitulo() + ", " + livro.getPreco());
         return livroService.salvar(livro);
     }
 
