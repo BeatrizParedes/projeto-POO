@@ -21,3 +21,31 @@
   border: none;
   cursor: pointer;
 }
+.carregando {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #e07a4e;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mensagem {
+  margin-top: 10px;
+  color: gray;
+  font-size: 0.9rem;
+}
+

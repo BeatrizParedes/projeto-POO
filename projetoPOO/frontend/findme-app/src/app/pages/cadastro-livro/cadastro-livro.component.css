@@ -5,7 +5,7 @@
   min-height: 100vh;
 }
 
-/* Sidebar */
+
 .sidebar {
   width: 220px;
   background: #fff;
@@ -58,7 +58,7 @@
   cursor: pointer;
 }
 
-/* Conteúdo */
+
 .content {
   flex: 1;
   padding: 30px;
@@ -145,7 +145,7 @@ textarea {
   text-decoration: none;
 }
 
-.submit-btn {
+.submit-btn{
   background: #e07a4e;
   color: white;
   padding: 14px;
@@ -158,4 +158,53 @@ textarea {
 
 .submit-btn:hover {
   background: #c64f23;
+}
+
+.mensagem-sucesso {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #f2fff7; 
+  border: 1px solid #b7e4c7;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.mensagem-sucesso p {
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+
+.voltar-btn {
+  background-color: #e07a4e; 
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.voltar-btn:hover {
+  background-color: #c64f23;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

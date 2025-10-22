@@ -1,4 +1,4 @@
-spring.application.name=demo
+spring.application.name:demo
 
 spring.datasource.url=jdbc:mysql://shinkansen.proxy.rlwy.net:40321/railway
 spring.datasource.username=${DB_USER}

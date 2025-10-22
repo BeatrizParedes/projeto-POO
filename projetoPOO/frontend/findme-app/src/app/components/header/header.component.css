@@ -1,62 +1,83 @@
-/* Estilo do container principal */
+
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #d9531e; /* Laranja do seu header */
+  background-color: #d9531e; 
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-/* Área da pesquisa */
+
 .search-wrapper {
   display: flex;
   align-items: center;
-  background: #f3f3f3;
+  background: #fdfdfd;
   border-radius: 25px;
   overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* Input da pesquisa menor */
+.search-wrapper:focus-within {
+  transform: scale(1.03);
+  box-shadow: 0 0 6px rgba(217, 83, 30, 0.5);
+}
+
 .search-input {
-  width: 220px;          /* <-- reduzi a largura */
-  padding: 0.4rem 0.8rem;
+  width: 220px;
+  padding: 0.5rem 0.8rem;
   border: none;
   outline: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  color: #333;
+  background: transparent;
 }
 
-/* Botão da lupa */
 .search-btn {
   background: none;
   border: none;
   padding: 0 0.6rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  transform: scale(1.1);
 }
 
 .search-btn .material-icons {
-  font-size: 1.2rem;
-  color: #5f5f5f;
-}
-
-/* Botão de cadastrar livro */
-.add-book-btn {
-  background-color: #fff;
+  font-size: 1.3rem;
   color: #d9531e;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  margin-left: 1rem;
+}
+
+
+.btn-cadastrar {
+  background-color: #e07a4e;
+  color: white;
   border: none;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.add-book-btn:hover {
-  background-color: #f1f1f1;
+.btn-cadastrar:hover {
+  background-color: #c64f23;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Avatar e informações do usuário */
+.btn-cadastrar:active {
+  transform: scale(0.97);
+}
+
+
 .user-info {
   display: flex;
   align-items: center;
@@ -73,6 +94,7 @@
   display: flex;
   flex-direction: column;
   color: #fff;
+  line-height: 1.2;
 }
 
 .username {
@@ -83,4 +105,35 @@
 .role {
   font-size: 0.8rem;
   opacity: 0.9;
+}
+
+
+.carregando {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff7ed;
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+.mensagem {
+  color: #fff;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

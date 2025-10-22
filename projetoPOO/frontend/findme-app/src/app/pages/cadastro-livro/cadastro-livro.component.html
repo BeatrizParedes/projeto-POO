@@ -1,8 +1,7 @@
 <div class="container">
-  <!-- Sidebar -->
+
   <aside class="sidebar">
-    <div class="profile">
-    </div>
+    <div class="profile"></div>
 
     <nav class="menu">
       <button>Meu Perfil</button>
@@ -15,68 +14,72 @@
     <button class="logout">Sair</button>
   </aside>
 
-  <!-- Conteúdo principal -->
+  
   <main class="content">
     <h2>CADASTRO DE LIVRO</h2>
 
+    
     <form class="form" (ngSubmit)="onSubmit()" #frm="ngForm">
-    <input
-      type="text"
-      placeholder="Preencha título do livro.*"
-      required
-      name="titulo"
-      [(ngModel)]="livro.titulo"
-    />
-
-    <input
-      type="text"
-      placeholder="Preencha autor do livro.*"
-      required
-      name="autor"
-      [(ngModel)]="livro.autor"
-    />
-
-    <input
-      type="text"
-      placeholder="Preencha o gênero do livro.*"
-      required
-      name="genero"
-      [(ngModel)]="livro.genero"
-    />
-
-    <textarea
-      placeholder="Insira a descrição do livro.*"
-      name="descricao"
-      [(ngModel)]="livro.descricao"
-    ></textarea>
-
-    <label class="price-label">Preencha o valor do livro:</label>
-    <div class="price">
-      <span>R$</span>
       <input
-        type="number"
-        placeholder="*"
+        type="text"
+        placeholder="Preencha título do livro.*"
         required
-        step="0.01"
-        inputmode="decimal"
-        name="preco"
-        [(ngModel)]="livro.preco"
+        name="titulo"
+        [(ngModel)]="livro.titulo"
       />
+
+      <input
+        type="text"
+        placeholder="Preencha autor do livro.*"
+        required
+        name="autor"
+        [(ngModel)]="livro.autor"
+      />
+
+      <input
+        type="text"
+        placeholder="Preencha o gênero do livro.*"
+        required
+        name="genero"
+        [(ngModel)]="livro.genero"
+      />
+
+      <textarea
+        placeholder="Insira a descrição do livro.*"
+        name="descricao"
+        [(ngModel)]="livro.descricao"
+      ></textarea>
+
+      <label class="price-label">Preencha o valor do livro:</label>
+      <div class="price">
+        <span>R$</span>
+        <input
+          type="number"
+          placeholder="*"
+          required
+          step="0.01"
+          inputmode="decimal"
+          name="preco"
+          [(ngModel)]="livro.preco"
+        />
+      </div>
+
+      <div class="terms">
+        <input type="checkbox" required />
+        <label>
+          Eu concordo com os
+          <a href="#">termos de uso</a>
+          da plataforma
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn">CADASTRAR LIVRO</button>
+    </form>
+
+    
+    <div *ngIf="cadastroConcluido" class="mensagem-sucesso">
+      <p>{{ mensagemSucesso }}</p>
+      <button (click)="voltarHome()" class="voltar-btn">Voltar para Home</button>
     </div>
-
-    <div class="upload-boxes">
-      <div class="upload">Clique aqui para adicionar imagens do livro.*</div>
-      <div class="upload small">+</div>
-      <div class="upload small">+</div>
-    </div>
-
-    <div class="terms">
-      <input type="checkbox" required />
-      <label>Eu concordo com os <a href="#">termos de uso</a> da plataforma</label>
-    </div>
-
-    <button type="submit" class="submit-btn">CADASTRAR LIVRO</button>
-</form>
-
   </main>
 </div>

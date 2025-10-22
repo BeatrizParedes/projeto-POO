@@ -1,31 +1,38 @@
 <header class="header-container">
-  <!-- Campo de pesquisa -->
+  
   <div class="search-wrapper">
     <input
       type="text"
-      placeholder="Search"
+      placeholder="Pesquise..."
       class="search-input"
+      [(ngModel)]="termo"
+      (keyup.enter)="buscar()"
     />
-    <button class="search-btn">
+    <button class="search-btn" (click)="buscar()">
       <span class="material-icons">search</span>
     </button>
   </div>
 
-  <!-- Botão de adicionar livro -->
+  
   <nav>
-    <button (click)="abrirCadastro()">Cadastrar Livro</button>
+    <button class="btn-cadastrar" (click)="abrirCadastro()">Cadastrar Livro</button>
   </nav>
 
-  <!-- Avatar e usuário -->
+  
   <div class="user-info">
-    <img
-      src="assets/avatar.png"
-      alt="Avatar"
-      class="avatar"
-    />
+    <img src="assets/avatar.png" alt="Avatar" class="avatar" />
     <div class="user-details">
       <span class="username">Beatriz Paredes</span>
       <span class="role">Designer Gráfico</span>
     </div>
+  </div>
+
+  
+  <div class="status-area">
+    <div *ngIf="carregando" class="carregando">
+      <span class="material-icons spin">autorenew</span>
+      Buscando livro...
+    </div>
+    <p *ngIf="mensagem" class="mensagem">{{ mensagem }}</p>
   </div>
 </header>

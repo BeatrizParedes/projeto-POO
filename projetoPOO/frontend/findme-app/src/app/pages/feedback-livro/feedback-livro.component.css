@@ -3,11 +3,11 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f6f2; /* Cor de fundo creme/clara */
+  background-color: #f8f6f2; 
   font-family: Arial, sans-serif;
 }
 
-/* Header/Perfil */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -23,7 +23,7 @@
 .user-profile {
   display: flex;
   align-items: center;
-  background-color: #f7a98a; /* Cor de fundo do perfil */
+  background-color: #f7a98a; 
   border-radius: 25px;
   padding: 5px 15px 5px 5px;
 }
@@ -42,9 +42,9 @@
   color: white;
 }
 
-/* Barra de Pesquisa */
+
 .search-bar {
-  background-color: #e0906e; /* Cor da barra */
+  background-color: #e0906e; 
   height: 40px;
   border-radius: 20px;
   margin: 20px 0;
@@ -61,15 +61,15 @@
   font-size: 1em;
 }
 
-/* Título Principal */
+
 .main-title {
   text-align: center;
   margin: 30px 0;
   font-size: 1.8em;
-  color: #6d4239; /* Cor marrom escura */
+  color: #6d4239; 
 }
 
-/* Card de Feedback do Livro */
+
 .feedback-card {
   display: flex;
   background-color: white;
@@ -78,7 +78,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Info do Livro (Lado Esquerdo) */
+
 .book-info {
   display: flex;
   gap: 20px;
@@ -127,7 +127,7 @@
   cursor: pointer;
 }
 
-/* Área de Rating e Comentário (Lado Direito) */
+
 .rating-area {
   width: 60%;
   display: flex;
@@ -142,13 +142,13 @@
 
 .star-icon {
   font-size: 2em;
-  color: #ccc; /* Cor da estrela vazia */
+  color: #ccc; 
   cursor: pointer;
   transition: color 0.2s;
 }
 
 .star-icon.filled {
-  color: #ffc107; /* Cor da estrela cheia (amarelo/laranja) */
+  color: #ffc107; 
 }
 
 .comment-textarea {
@@ -167,9 +167,9 @@
   margin-top: 5px;
 }
 
-/* Banner de Promoção */
+
 .promotion-banner {
-  background-color: #d17849; /* Cor principal do banner */
+  background-color: #d17849; 
   border-radius: 15px;
   margin-top: 40px;
   display: flex;
@@ -196,7 +196,7 @@
 }
 
 .highlight {
-  color: #6d4239; /* Cor de destaque no 'O' */
+  color: #6d4239; 
 }
 
 .banner-slogan {
@@ -206,7 +206,7 @@
 }
 
 .promotion-button {
-  background-color: #c95c32; /* Cor do botão dentro do banner */
+  background-color: #c95c32; 
   color: white;
   border: 1px solid white;
   padding: 8px 15px;
@@ -216,12 +216,10 @@
 }
 
 .cat-illustration {
-    /* Representação simplificada da ilustração do gato */
+    
     width: 150px;
     height: 150px;
-    /* Ajuste o background para a sua imagem de gato real */
-    background-color: #4a6a57; /* Cor de preenchimento para visualização */
+    background-color: #4a6a57; 
     border-radius: 50%;
     margin-left: 20px;
-    /* Adicione mais estilos para replicar a cúpula/brilho */
 }

@@ -1,4 +1,4 @@
-/* Limita a largura da página igual ao Figma */
+
 :host {
   display: block;
   max-width: 1200px;
@@ -6,22 +6,22 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Remove espaço em branco do topo */
+
 .banner-wrapper {
   margin-top: -20px;
 }
 
-/* Espaçamento entre banner, filtro e conteúdo */
+
 .filtro-wrapper {
   margin: 20px 0;
 }
 
-/* Área principal onde ficam as seções de livro */
+
 .conteudo-home {
   padding: 20px 0;
 }
 
-/* Título de cada sessão (caso precise ajustar no SessaoLivrosComponent) */
+
 h2.titulo-sessao {
   font-size: 1.6rem;
   font-weight: 600;
@@ -29,7 +29,7 @@ h2.titulo-sessao {
   color: #3d2a1a;
 }
 
-/* Garante que todos os cards fiquem alinhados */
+
 app-sessao-livros {
   display: block;
   margin-bottom: 40px;

@@ -1,12 +1,17 @@
-<section class="sessao">
+<div class="sessao">
   <h2>{{ titulo }}</h2>
-  <div class="grid">
+
+  <div class="lista-livros">
     <app-card-livro
       *ngFor="let livro of livros"
+      [id]="livro.id ?? 0"
       [titulo]="livro.titulo"
       [preco]="livro.preco"
-      [imagem]="livro.imagem"
-      [acao]="livro.acao">
+      acao="Ver detalhes">
     </app-card-livro>
   </div>
-</section>
+
+  <p *ngIf="livros.length === 0" class="mensagem-vazio">
+    Nenhum livro cadastrado ainda.
+  </p>
+</div>

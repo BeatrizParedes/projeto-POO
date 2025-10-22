@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LivroService, Livro } from '../../services/livro.service';
 
 @Component({
@@ -11,44 +12,42 @@ import { LivroService, Livro } from '../../services/livro.service';
   styleUrls: ['./filtro-busca.component.css']
 })
 export class FiltroBuscaComponent {
-  _titulo: string = '';
-  _livros: Livro[] = [];
-  _mensagem: string = '';
+  termo: string = '';
+  mensagem: string = '';
+  carregando: boolean = false; 
 
-  constructor(private livroService: LivroService) {}
+  constructor(
+    private livroService: LivroService,
+    private router: Router
+  ) {}
 
   buscar(): void {
-    this._mensagem = '';
-    this._livros = [];
+    const termoBusca = this.termo.trim();
 
-    const termo = this._titulo.trim();
-
-    if (termo === '') {
-      this.livroService.listar().subscribe({
-        next: (dados) => {
-          this._livros = dados;
-          if (dados.length === 0) {
-            this._mensagem = 'Nenhum livro encontrado.';
-          }
-        },
-        error: (err) => {
-          console.error('Erro ao buscar livros:', err);
-          this._mensagem = 'Erro ao carregar livros.';
-        }
-      });
-    } else {
-      this.livroService.buscarPorTitulo(termo).subscribe({
-        next: (dados) => {
-          this._livros = dados;
-          if (dados.length === 0) {
-            this._mensagem = 'Nenhum livro encontrado.';
-          }
-        },
-        error: (err) => {
-          console.error('Erro ao buscar livros por título:', err);
-          this._mensagem = 'Erro ao buscar livros.';
-        }
-      });
+    if (!termoBusca) {
+      this.mensagem = 'Digite o título do livro para buscar.';
+      return;
     }
+
+    this.carregando = true;
+    this.mensagem = '';
+
+    this.livroService.buscarPorTitulo(termoBusca).subscribe({
+      next: (livros) => {
+        this.carregando = false;
+
+        if (livros.length > 0) {
+          const livroEncontrado = livros[0];
+          this.router.navigate(['/livros', livroEncontrado.id]); 
+        } else {
+          this.mensagem = 'Nenhum livro encontrado com esse título.';
+        }
+      },
+      error: (erro) => {
+        this.carregando = false;
+        console.error('Erro ao buscar livro:', erro);
+        this.mensagem = 'Ocorreu um erro na busca.';
+      }
+    });
   }
 }

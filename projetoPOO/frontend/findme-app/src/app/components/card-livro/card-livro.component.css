@@ -1,63 +1,51 @@
-.card {
-  background: #fbe9d7;
-  padding: 16px;
+.card-livro {
+  background: #fff;
   border-radius: 12px;
+  padding: 18px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-family: 'Poppins', Arial, sans-serif;
+  width: 230px;
+  margin: 10px auto;
+  border: 1px solid #f0e0d8;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+.card-livro:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(224, 122, 78, 0.25);
 }
 
-.card img {
-  height: 160px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.card h3 {
-  font-size: 16px;
-  margin: 8px 0;
+.card-livro h3 {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .preco {
-  color: #e25300;
+  color: #e07a4e;
+  font-size: 1rem;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
-button {
-  background: #e25300;
-  color: white;
+.detalhes-btn {
+  background: #e07a4e;
+  color: #fff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 6px;
+  padding: 10px 18px;
   cursor: pointer;
-  margin-top: 8px;
-  transition: background 0.2s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background: #d04b00;
+.detalhes-btn:hover {
+  background: #c85c2a;
+  transform: scale(1.05);
 }
 
-.favorito {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 20px;
-  color: #e25300;
-  cursor: pointer;
-}
-
-.favorito .fa-heart-o {
-  color: #aaa;
-}
-
-.favorito .fa-heart {
-  color: #e25300;
+.detalhes-btn:active {
+  transform: scale(0.98);
 }

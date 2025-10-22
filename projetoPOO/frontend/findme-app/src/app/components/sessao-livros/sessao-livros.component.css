@@ -13,3 +13,24 @@
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
 }
+.sessao {
+  padding: 20px;
+}
+
+.sessao h2 {
+  font-size: 1.5rem;
+  color: #d25a2d;
+  margin-bottom: 15px;
+}
+
+.lista-livros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.mensagem-vazio {
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+}

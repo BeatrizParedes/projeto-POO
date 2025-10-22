@@ -1,28 +1,19 @@
-<div class="filtros">
-  <select>
-    <option>Gênero</option>
-  </select>
-  <select>
-    <option>Cidade</option>
-  </select>
-  <select>
-    <option>Valor</option>
-  </select>
-
+<div class="filtro-busca">
   <input
     type="text"
-    placeholder="Título, autor, gênero"
-    [(ngModel)]="_titulo"
+    placeholder="Digite o título do livro..."
+    [(ngModel)]="termo"
   />
-  <button (click)="buscar()">Buscar</button>
-</div>
 
-<div class="resultado" *ngIf="_livros.length > 0">
-  <ul>
-    <li *ngFor="let livro of _livros">
-      <strong>{{ livro.titulo }}</strong> — {{ livro.autor }} (R$ {{ livro.preco }})
-    </li>
-  </ul>
-</div>
+  <button class="search-btn" (click)="buscar()">
+    <span class="material-icons">search</span>
+  </button>
 
-<p *ngIf="_mensagem" style="margin-top: 10px; color: gray;">{{ _mensagem }}</p>
+  
+  <div *ngIf="carregando" class="carregando">
+    <span class="material-icons spin">autorenew</span> Buscando livro...
+  </div>
+
+ 
+  <p *ngIf="mensagem" class="mensagem">{{ mensagem }}</p>
+</div>

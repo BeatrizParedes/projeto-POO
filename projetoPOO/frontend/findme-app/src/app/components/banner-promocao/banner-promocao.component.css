@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;             /* ocupa toda a largura do container */
+  width: 100%;             
   border-radius: 16px;
   overflow: hidden;
   margin: 0px 0;
@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;             /* ocupa toda a largura do container */
+  width: 100%;             
   border-radius: 16px;
   overflow: hidden;
   margin: 0px 0;
@@ -21,9 +21,9 @@
 }
 
 .banner img {
-  width: 100%;             /* ocupa toda largura do banner */
-  height: auto;            /* mantém proporção da imagem */
+  width: 100%;             
+  height: auto;            
   display: block;
-  border-radius: inherit;  /* opcional: bordas arredondadas iguais ao banner */
+  border-radius: inherit;  
 }
 
