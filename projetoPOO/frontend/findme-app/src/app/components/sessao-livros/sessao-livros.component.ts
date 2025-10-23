@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LivroService, Livro } from '../../services/livro.service';
 import { CardLivroComponent } from '../card-livro/card-livro.component';
+import { Livro } from '../../services/livro.service';
 
 @Component({
   selector: 'app-sessao-livros',
@@ -10,27 +10,7 @@ import { CardLivroComponent } from '../card-livro/card-livro.component';
   templateUrl: './sessao-livros.component.html',
   styleUrls: ['./sessao-livros.component.css']
 })
-export class SessaoLivrosComponent implements OnInit {
-  @Input() titulo: string = 'Novidades';
+export class SessaoLivrosComponent {
+  @Input() titulo: string = '';
   @Input() livros: Livro[] = [];
-
-  constructor(private livroService: LivroService) {}
-
-  ngOnInit(): void {
-    this.livroService.listar().subscribe({
-      next: (dados) => {
-        this.livros = dados;
-      },
-      error: (err) => {
-        console.error('Erro ao listar livros:', err);
-      }
-    });
-
-
-    this.livroService.livros$.subscribe({
-      next: (dados) => {
-        this.livros = dados;
-      }
-    });
-  }
 }

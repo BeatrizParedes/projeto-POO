@@ -1,5 +1,5 @@
 <div class="container">
-  <input class="barra-pesquisa" placeholder="Pesquisar título do livro">
+  
 
   <div *ngIf="carregando" class="loading">
     Carregando livro...
@@ -25,6 +25,10 @@
 
         <p class="veja-mais">Veja mais</p>
       </div>
+    </div>
+
+    <div class="voltar-container">
+      <button class="voltar" (click)="voltarHome()">← Voltar para a Home</button>
     </div>
 
     <div class="banner">

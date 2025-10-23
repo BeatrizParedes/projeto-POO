@@ -10,7 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./card-livro.component.css']
 })
 export class CardLivroComponent {
-
   @Input() id!: number;
   @Input() titulo: string = '';
   @Input() preco: number = 0;
@@ -20,8 +19,7 @@ export class CardLivroComponent {
     return this.preco ? this.preco.toFixed(2).replace('.', ',') : '0,00';
   }
 
- 
   get rotaDetalhes(): any[] {
-    return ['/livros', this.id];
+    return ['/livro-detalhes', this.id];
   }
 }

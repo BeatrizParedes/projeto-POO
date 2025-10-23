@@ -30,11 +30,27 @@ public class LivroService {
         livroRepository.deleteById(id);
     }
 
+    // ✅ Atualizado: busca múltiplos livros, filtrando corretamente por título, gênero ou preço
     public List<Livro> buscarComFiltros(String titulo, String genero, Double preco) {
-        return livroRepository.filtrarLivros(
-                titulo != null && !titulo.isEmpty() ? titulo : null,
-                genero != null && !genero.isEmpty() ? genero : null,
-                preco != null ? preco : null
-        );
+
+        // 👉 Se o título for informado, retorna todos os livros cujo título contenha o termo
+        if (titulo != null && !titulo.isEmpty()) {
+            return livroRepository.findByTituloContainingIgnoreCase(titulo);
+        }
+
+        // 👉 Se o gênero for informado, retorna todos os livros desse gênero
+        else if (genero != null && !genero.isEmpty()) {
+            return livroRepository.findByGeneroContainingIgnoreCase(genero);
+        }
+
+        // 👉 Se o preço for informado, retorna todos com esse preço exato
+        else if (preco != null) {
+            return livroRepository.findByPreco(preco);
+        }
+
+        // 👉 Se nenhum filtro for passado, retorna todos
+        else {
+            return livroRepository.findAll();
+        }
     }
 }

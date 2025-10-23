@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CadastroLivroComponent } from './pages/cadastro-livro/cadastro-livro.component';
 import { NaoEncontradoComponent } from './pages/nao-encontrado/nao-encontrado.component';
+import { ResultadoBuscaComponent } from './pages/resultado-busca/resultado-busca.component';
 
 export const routes: Routes = [
   {
@@ -15,7 +16,13 @@ export const routes: Routes = [
     title: 'Findme | Cadastro de Livros'
   },
   {
-    path: 'livros/:id',
+    path: 'resultado-busca',
+    component: ResultadoBuscaComponent,
+    title: 'Findme | Resultado da Busca'
+  },
+  {
+  
+    path: 'livro-detalhes/:id',
     loadComponent: () =>
       import('./pages/livro-detalhes/livro-detalhes.component')
         .then(m => m.LivroDetalhesComponent),

@@ -10,7 +10,7 @@ export interface Livro {
   genero?: string;
   descricao?: string;
   preco: number;
-  avaliacao?: number; 
+  avaliacao?: number;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -41,12 +41,10 @@ export class LivroService {
     return this.http.get<Livro>(`${this.baseUrl}/${id}`);
   }
 
-  // ✅ Novo método — para busca por título
   buscarPorTitulo(titulo: string): Observable<Livro[]> {
-  const url = `${this.baseUrl}/buscar?titulo=${encodeURIComponent(titulo)}`;
-  return this.http.get<Livro[]>(url);
-}
-
+    const url = `${this.baseUrl}/buscar?titulo=${encodeURIComponent(titulo)}`;
+    return this.http.get<Livro[]>(url);
+  }
 
   deletar(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`).pipe(

@@ -1,28 +1,10 @@
 <div class="card-livro">
-  <h3 class="titulo">{{ titulo }}</h3>
-
-  <p class="preco">
-    R$ {{ precoFormatado }}
-  </p>
+  <h3>{{ titulo }}</h3>
+  <p class="preco">R$ {{ precoFormatado }}</p>
 
   <button
-    type="button"
     class="detalhes-btn"
-    [routerLink]="['/livros', id]"
-  >
+    [routerLink]="rotaDetalhes">
     {{ acao }}
   </button>
 </div>
-
-
-
-<!-- 
-ESSE BLOCO DE CÓDIGO DEIXA O CARD TODO CLICÁVEL
-
-<a class="card" [routerLink]="['/livro', id]">
-  <img [src]="imagem" [alt]="titulo" />
-  <h3>{{ titulo }}</h3>
-  <p class="preco">R$ {{ preco }}</p>
-  <button>{{ acao || 'Ver mais' }}</button>
-</a>
--->

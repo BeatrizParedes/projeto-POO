@@ -1,8 +1,11 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
+import {
+  provideRouter,
+  withInMemoryScrolling,
+  withViewTransitions
+} from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
-
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,6 +14,6 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withInMemoryScrolling({ scrollPositionRestoration: 'top' })
     ),
-    provideHttpClient(),
-     ]
+    provideHttpClient() // ✅ Isso substitui o HttpClientModule
+  ]
 };

@@ -97,3 +97,28 @@ h2 {
 .detalhes p {
   margin: 6px 0;
 }
+.voltar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.voltar {
+  background: linear-gradient(to right, #C9684A);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.voltar:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #b35235);
+}

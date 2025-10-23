@@ -1,36 +1,33 @@
-.sessao {
-  margin: 32px;
+.sessao-livros {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
-.sessao h2 {
-  font-size: 20px;
+.sessao-livros h2 {
+  color: #d45527;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  text-align: left;
 }
 
-.grid {
+.livros-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
-}
-.sessao {
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  justify-items: center;
 }
 
-.sessao h2 {
-  font-size: 1.5rem;
-  color: #d25a2d;
-  margin-bottom: 15px;
-}
-
-.lista-livros {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.mensagem-vazio {
-  color: #888;
+.sem-livros {
+  text-align: center;
+  color: #999;
   font-style: italic;
   margin-top: 20px;
+}
+.livros-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  justify-items: center;
 }
