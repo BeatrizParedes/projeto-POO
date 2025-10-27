@@ -1,19 +1,29 @@
-<div class="filtro-busca">
+<form (ngSubmit)="buscar()" class="filtros-wrap">
+
   <input
-    type="text"
-    placeholder="Digite o título do livro..."
     [(ngModel)]="termo"
+    name="titulo"
+    type="text"
+    placeholder="Buscar por título (opcional)"
+    class="campo texto"
   />
 
-  <button class="search-btn" (click)="buscar()">
-    <span class="material-icons">search</span>
-  </button>
+  <select [(ngModel)]="genero" name="genero" class="campo select">
+    <option value="">Todos os gêneros</option>
+    <option *ngFor="let g of generos" [value]="g">{{ g }}</option>
+  </select>
 
-  
-  <div *ngIf="carregando" class="carregando">
-    <span class="material-icons spin">autorenew</span> Buscando livro...
-  </div>
+  <input
+    [(ngModel)]="precoMax"
+    name="preco"
+    type="number"
+    min="0"
+    step="1"
+    placeholder="Preço máximo (opcional)"
+    class="campo numero"
+  />
 
- 
-  <p *ngIf="mensagem" class="mensagem">{{ mensagem }}</p>
-</div>
+  <button type="submit" class="btn">Buscar</button>
+</form>
+
+<p class="msg" *ngIf="mensagem">{{ mensagem }}</p>

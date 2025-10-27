@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.model.Livro;
 import com.example.demo.repository.LivroRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +10,11 @@ import java.util.Optional;
 @Service
 public class LivroService {
 
-    @Autowired
-    private LivroRepository livroRepository;
+    private final LivroRepository livroRepository;
+
+    public LivroService(LivroRepository livroRepository) {
+        this.livroRepository = livroRepository;
+    }
 
     public List<Livro> listartodos() {
         return livroRepository.findAll();
@@ -30,27 +32,11 @@ public class LivroService {
         livroRepository.deleteById(id);
     }
 
-    // ✅ Atualizado: busca múltiplos livros, filtrando corretamente por título, gênero ou preço
     public List<Livro> buscarComFiltros(String titulo, String genero, Double preco) {
+        String t = (titulo == null || titulo.isBlank()) ? null : titulo.trim();
+        String g = (genero == null || genero.isBlank()) ? null : genero.trim();
+        Double p = preco; 
 
-        // 👉 Se o título for informado, retorna todos os livros cujo título contenha o termo
-        if (titulo != null && !titulo.isEmpty()) {
-            return livroRepository.findByTituloContainingIgnoreCase(titulo);
-        }
-
-        // 👉 Se o gênero for informado, retorna todos os livros desse gênero
-        else if (genero != null && !genero.isEmpty()) {
-            return livroRepository.findByGeneroContainingIgnoreCase(genero);
-        }
-
-        // 👉 Se o preço for informado, retorna todos com esse preço exato
-        else if (preco != null) {
-            return livroRepository.findByPreco(preco);
-        }
-
-        // 👉 Se nenhum filtro for passado, retorna todos
-        else {
-            return livroRepository.findAll();
-        }
+        return livroRepository.filtrarLivros(t, g, p);
     }
 }

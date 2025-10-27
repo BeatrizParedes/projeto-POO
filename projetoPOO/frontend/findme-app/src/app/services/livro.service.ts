@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 export interface Livro {
   id?: number;
   titulo: string;
-  autor: string;
+  autor?: string;      
   genero?: string;
   descricao?: string;
   preco: number;
@@ -41,10 +41,23 @@ export class LivroService {
     return this.http.get<Livro>(`${this.baseUrl}/${id}`);
   }
 
-  buscarPorTitulo(titulo: string): Observable<Livro[]> {
-    const url = `${this.baseUrl}/buscar?titulo=${encodeURIComponent(titulo)}`;
-    return this.http.get<Livro[]>(url);
+  buscar(params: { titulo?: string; genero?: string; preco?: number }): Observable<Livro[]> {
+    const cleaned: Record<string, any> = {};
+    if (params.titulo?.trim()) cleaned['titulo'] = params.titulo.trim();
+    if (params.genero?.trim()) cleaned['genero'] = params.genero.trim();
+    if (params.preco != null)  cleaned['preco']  = params.preco;
+
+    const httpParams = new HttpParams({ fromObject: cleaned });
+
+    return this.http.get<Livro[]>(`${this.baseUrl}/buscar`, { params: httpParams }).pipe(
+      tap(lista => this.livrosSubject.next(lista))
+    );
   }
+
+  buscarPorTitulo(titulo: string)               { return this.buscar({ titulo }); }
+  buscarPorGenero(genero: string)               { return this.buscar({ genero }); }
+  buscarPorTituloEGenero(t: string, g: string)  { return this.buscar({ titulo: t, genero: g }); }
+  buscarAtePreco(preco: number)                 { return this.buscar({ preco }); }
 
   deletar(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`).pipe(

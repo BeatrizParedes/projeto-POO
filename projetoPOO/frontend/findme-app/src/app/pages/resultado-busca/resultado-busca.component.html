@@ -1,29 +1,17 @@
-<div class="container">
+<section class="resultado-wrap">
+  <h2 class="titulo-pagina">Resultados da busca por {{ labelBusca }}</h2>
 
-  <h2 class="titulo-pagina">Resultados da busca por "{{ termo }}"</h2>
+  <p *ngIf="carregando">Carregando...</p>
+  <p *ngIf="!carregando && !erro && livros.length === 0">Nenhum livro encontrado.</p>
+  <p *ngIf="erro">{{ erro }}</p>
 
-  <div *ngIf="carregando" class="carregando">
-    <p>Carregando resultados...</p>
+  <div class="grid-cards" *ngIf="!carregando && livros.length > 0">
+    <app-card-livro
+      *ngFor="let l of livros"
+      [id]="l.id!"
+      [titulo]="l.titulo"
+      [preco]="l.preco ?? 0"
+      [acao]="'Ver detalhes'">
+    </app-card-livro>
   </div>
-
-  <div *ngIf="erro" class="erro">
-    <p>{{ erro }}</p>
-  </div>
-
-  
-  <div *ngIf="!carregando && livros.length > 0 && !erro" class="lista-livros">
-    <div *ngFor="let livro of livros" class="card-livro">
-      <h3>{{ livro.titulo }}</h3>
-      <p><strong>Autor:</strong> {{ livro.autor || '—' }}</p>
-      <p><strong>Gênero:</strong> {{ livro.genero || '—' }}</p>
-      <p><strong>Preço:</strong> R$ {{ livro.preco | number:'1.2-2' }}</p>
-      <p><strong>Descrição:</strong> {{ livro.descricao || 'Sem descrição.' }}</p>
-      <button class="btn-detalhes" (click)="verDetalhes(livro.id)">Ver detalhes</button>
-    </div>
-  </div>
-
-  <div *ngIf="!carregando && livros.length === 0 && !erro" class="sem-resultados">
-    <p>Nenhum livro encontrado com esse título.</p>
-  </div>
-
-</div>
+</section>

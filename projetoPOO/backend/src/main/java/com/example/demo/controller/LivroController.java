@@ -10,28 +10,25 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/livros")
-@CrossOrigin(origins = "http://localhost:4200") // Angular rodando local
+@CrossOrigin(origins = "http://localhost:4200")
 public class LivroController {
 
     @Autowired
     private LivroService livroService;
 
-    // ✅ Lista todos os livros
     @GetMapping
     public List<Livro> listar() {
         return livroService.listartodos();
     }
 
-    // ✅ Salva um novo livro
     @PostMapping
     public Livro salvar(@RequestBody Livro livro) {
         System.out.println("Recebido: " + livro.getTitulo() + ", " + livro.getPreco());
         return livroService.salvar(livro);
     }
 
-    // ✅ Busca livros com filtros opcionais (título, gênero e preço)
-    // Se o título for informado, retornará todos os livros que contenham esse título
-    @GetMapping("/buscar")
+    
+   @GetMapping("/buscar")
     public ResponseEntity<List<Livro>> buscarLivros(
             @RequestParam(required = false) String titulo,
             @RequestParam(required = false) String genero,
@@ -41,7 +38,6 @@ public class LivroController {
         return ResponseEntity.ok(livros);
     }
 
-    // ✅ Busca um livro pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Livro> buscarPorId(@PathVariable Long id) {
         return livroService.buscaporID(id)
@@ -49,7 +45,6 @@ public class LivroController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // ✅ Deleta um livro pelo ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         livroService.deletarporID(id);

@@ -1,22 +1,42 @@
 <app-banner-promocao></app-banner-promocao>
 
-<app-sessao-livros
-  [titulo]="'Novidades'"
-  [livros]="novidades">
-</app-sessao-livros>
+<section class="filtro-novidades" style="margin: 24px 0;">
+  <form (ngSubmit)="aplicarFiltrosNovidades()" style="display:flex; gap:12px; align-items:end; flex-wrap:wrap;">
+  
+    <div style="display:flex; flex-direction:column;">
+      <label for="genero" style="font-weight:600; margin-bottom:4px;">Gênero (opcional)</label>
+      <input id="genero"
+             type="text"
+             [(ngModel)]="filtroGenero"
+             name="genero"
+             placeholder="Ex.: Educacional, Romance..."
+             style="min-width:180px; padding:8px;">
+    </div>
 
-<div class="section-spacer"></div>
+    <div style="display:flex; flex-direction:column;">
+      <label for="preco" style="font-weight:600; margin-bottom:4px;">Preço máximo (R$) — opcional</label>
+      <input id="preco" type="number" min="0" step="1"
+             [(ngModel)]="filtroPrecoMax"
+             name="preco"
+             placeholder="Ex.: 50"
+             style="width:160px; padding:8px;">
+    </div>
 
-<app-sessao-livros
-  [titulo]="'Últimas Compras'"
-  [livros]="ultimasCompras">
-</app-sessao-livros>
+    <div style="display:flex; gap:8px;">
+      <button type="submit" style="padding:10px 16px; font-weight:600;">Filtrar</button>
+      <button type="button" (click)="limparFiltrosNovidades()" style="padding:10px 16px;">Limpar</button>
+    </div>
+  </form>
 
-<div class="section-spacer"></div>
+  <div *ngIf="carregandoNovidades" style="margin-top:8px;">Aplicando filtros...</div>
+  <div *ngIf="erroNovidades" style="margin-top:8px; color:#c00;">{{ erroNovidades }}</div>
+</section>
 
-<app-sessao-livros
-  [titulo]="'Sugestões para você'"
-  [livros]="sugestoes">
-</app-sessao-livros>
+
+<app-sessao-livros [titulo]="'Novidades'" [livros]="novidades"></app-sessao-livros>
+
+<app-sessao-livros [titulo]="'Últimas Compras'" [livros]="ultimasCompras"></app-sessao-livros>
+
+<app-sessao-livros [titulo]="'Sugestões para você'" [livros]="sugestoes"></app-sessao-livros>
 
 <app-footer></app-footer>

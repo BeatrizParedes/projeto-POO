@@ -11,7 +11,7 @@ public class Livro {
     private String titulo;
     private String genero;
     private Double preco;
-    private String cidade;
+    private String descricao;
 
     public Livro() {}
 
@@ -27,6 +27,6 @@ public class Livro {
     public Double getPreco() { return preco; }
     public void setPreco(Double preco) { this.preco = preco; }
 
-    public String getCidade() { return cidade; }
-    public void setCidade(String cidade) { this.cidade = cidade; }
+    public String getDescricao() { return descricao; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
 }

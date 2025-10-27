@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LivroService, Livro } from '../../services/livro.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CardLivroComponent } from '../../components/card-livro/card-livro.component'; 
+import { ActivatedRoute, Router } from '@angular/router';
+import { LivroService, Livro } from '../../services/livro.service';
+import { CardLivroComponent } from '../../components/card-livro/card-livro.component';
 
 @Component({
   selector: 'app-resultado-busca',
@@ -12,11 +12,12 @@ import { CardLivroComponent } from '../../components/card-livro/card-livro.compo
   styleUrls: ['./resultado-busca.component.css']
 })
 export class ResultadoBuscaComponent implements OnInit {
-
   livros: Livro[] = [];
-  termo: string = '';
-  carregando: boolean = false;
-  erro: string = '';
+  carregando = false;
+  erro = '';
+  titulo?: string;
+  genero?: string;
+  preco?: number;
 
   constructor(
     private livroService: LivroService,
@@ -25,46 +26,40 @@ export class ResultadoBuscaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation?.extras.state as { livros?: Livro[] };
-
-    if (state && state.livros && state.livros.length > 0) {
+    const state = this.router.getCurrentNavigation()?.extras.state as { livros?: Livro[] } | undefined;
+    if (state?.livros?.length) {
       this.livros = state.livros;
-      return; 
+      return;
     }
 
-    
     this.route.queryParams.subscribe(params => {
-      this.termo = params['titulo'] || '';
-      if (this.termo) {
-        this.buscarLivros(this.termo);
-      } else {
+      this.titulo = params['titulo'] || undefined;
+      this.genero = params['genero'] || undefined;
+      this.preco  = params['preco']  ? Number(params['preco']) : undefined;
+
+      if (!this.titulo && !this.genero && this.preco == null) {
         this.livros = [];
+        return;
       }
+
+      this.carregando = true;
+      this.livroService.buscar({ titulo: this.titulo, genero: this.genero, preco: this.preco })
+        .subscribe({
+          next: lista => { this.livros = lista; this.carregando = false; },
+          error: err => { console.error(err); this.erro = 'Erro ao buscar livros.'; this.carregando = false; }
+        });
     });
   }
 
-  buscarLivros(titulo: string): void {
-    this.carregando = true;
-    this.erro = '';
-
-    this.livroService.buscarPorTitulo(titulo).subscribe({
-      next: (res: Livro[] | Livro) => {
-        this.livros = Array.isArray(res) ? res : (res ? [res] : []);
-        this.carregando = false;
-      },
-      error: (err: any) => {
-        console.error('Erro ao buscar livros:', err);
-        this.erro = 'Erro ao buscar livros.';
-        this.carregando = false;
-      }
-    });
+  get labelBusca(): string {
+    const parts: string[] = [];
+    if (this.titulo) parts.push(`título "${this.titulo}"`);
+    if (this.genero) parts.push(`gênero "${this.genero}"`);
+    if (this.preco != null) parts.push(`preço até R$ ${this.preco}`);
+    return parts.join(' • ');
   }
 
-  verDetalhes(id: number | undefined): void {
-    if (id != null) {
-      this.router.navigate(['/livro-detalhes', id]);
-    }
+  verDetalhes(id?: number) {
+    if (id != null) this.router.navigate(['/livro-detalhes', id]);
   }
 }
