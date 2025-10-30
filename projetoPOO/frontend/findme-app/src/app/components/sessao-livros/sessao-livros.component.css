@@ -1,33 +1,65 @@
+:host {
+  display: block;
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+/* Seção principal */
 .sessao-livros {
   margin: 40px auto;
   max-width: 1200px;
   padding: 0 20px;
 }
 
+/* Título */
 .sessao-livros h2 {
-  color: #d45527;
+  color: #d95f05;
   font-size: 1.8rem;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 24px;
   text-align: left;
 }
 
+/* Contêiner de livros */
 .livros-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* ✅ ajusta automaticamente */
   gap: 24px;
   justify-items: center;
+  align-items: stretch;
+  width: 100%;
+  height: auto;              /* ✅ permite expansão */
+  overflow: visible;         /* ✅ evita corte */
+  margin-bottom: 24px;
 }
 
+/* Card individual */
+app-card-livro {
+  width: 100%;
+  max-width: 220px;
+  min-width: 180px;
+}
+
+/* Estado vazio */
 .sem-livros {
   text-align: center;
   color: #999;
   font-style: italic;
   margin-top: 20px;
 }
-.livros-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 24px;
-  justify-items: center;
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .sessao-livros {
+    padding: 0 12px;
+  }
+
+  .sessao-livros h2 {
+    text-align: center;
+  }
+
+  .livros-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+  }
 }
