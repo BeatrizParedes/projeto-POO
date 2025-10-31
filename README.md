@@ -53,9 +53,9 @@
    3. Criação do [Screencast](https://youtu.be/X20zUMc_62g?si=DaMEYo_oWMpiiLuS) da navegação entre as telas do protótipo.
 
 
-2. ✖️ Entrega 2
+2. ✅ Entrega 2
    1. Atualização do [Screencast](https://youtu.be/2Onn6ZVlKHg?si=O85p5YDfxqIJux6M) da navegação entre as telas das histórias implementadas.
-4. ✖️ Entrega 3
+4. ✅ Entrega 3
    1. Atualização do [Screencast](https://youtu.be/AwtpHpO5-g0?si=supWwu4zVRpIj0wB) de teste unitário.
    2. Atualização do [Screencast](https://youtu.be/oMo1piYbc20?si=-rBpUijS_S3Lb9qn) de teste de integração.
    3. Atualização do [Screencast](https://youtu.be/ewfcZKHVXbI?si=H3P63e3rHBAb0kmN) da navegação entre as telas das histórias implementadas.
