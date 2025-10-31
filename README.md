@@ -55,8 +55,11 @@
 
 2. ✖️ Entrega 2
    1. Atualização do [Screencast](https://youtu.be/2Onn6ZVlKHg?si=O85p5YDfxqIJux6M) da navegação entre as telas das histórias implementadas.
-4. ✖️ Entrega 3 
-5. ✖️ Entrega 4 
+4. ✖️ Entrega 3
+   1. Atualização do [Screencast](https://youtu.be/wxKE_7Dt_tI?si=L6Z1AuwYY52WXkq1) de teste unitário.
+   2. Atualização do [Screencast](https://youtu.be/Q8DLLWsyLzM?si=Rcn_ITgsdt3pMzor) de teste de integração.
+   3. Atualização do [Screencast](https://youtu.be/ewfcZKHVXbI?si=H3P63e3rHBAb0kmN) da navegação entre as telas das histórias implementadas.
+6. ✖️ Entrega 4 
 
 
 ### Equipe e Contato
