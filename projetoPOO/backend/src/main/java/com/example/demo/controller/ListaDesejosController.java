@@ -16,7 +16,6 @@ public class ListaDesejosController {
     @Autowired
     private ListaDesejosService listaDesejosService;
 
-    // Adicionar um livro à lista de desejos
     @PostMapping("/adicionar/{livroId}")
     public ResponseEntity<ListaDesejo> adicionar(
             @PathVariable Long livroId,
@@ -26,14 +25,12 @@ public class ListaDesejosController {
         return ResponseEntity.ok(novoItem);
     }
 
-    // Listar desejos por usuário
     @GetMapping
     public ResponseEntity<List<ListaDesejo>> listar(@RequestParam String nomeUsuario) {
         List<ListaDesejo> lista = listaDesejosService.listar(nomeUsuario);
         return ResponseEntity.ok(lista);
     }
 
-    // Remover item da lista de desejos
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable Long id) {
         listaDesejosService.remover(id);

@@ -3,7 +3,6 @@ package com.example.demo.repository;
 import com.example.demo.model.Livro;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 

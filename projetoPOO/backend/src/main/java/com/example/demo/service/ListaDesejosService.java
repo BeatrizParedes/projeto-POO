@@ -18,7 +18,6 @@ public class ListaDesejosService {
     @Autowired
     private LivroRepository livroRepository;
 
-    // Adicionar um livro à lista de desejos
     public ListaDesejo adicionar(Long livroId, String nomeUsuario) {
         Livro livro = livroRepository.findById(livroId)
                 .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
@@ -26,13 +25,9 @@ public class ListaDesejosService {
         ListaDesejo item = new ListaDesejo(livro, nomeUsuario);
         return listaDesejosRepository.save(item);
     }
-
-    // Listar todos os desejos de um usuário
     public List<ListaDesejo> listar(String nomeUsuario) {
         return listaDesejosRepository.findByNomeUsuario(nomeUsuario);
     }
-
-    // Remover um item da lista de desejos
     public void remover(Long id) {
         listaDesejosRepository.deleteById(id);
     }

@@ -6,12 +6,13 @@ spring:
     name: demo
 
   datasource:
-    url: jdbc:mysql://shinkansen.proxy.rlwy.net:40321/railway
+    url: jdbc:mysql://shinkansen.proxy.rlwy.net:40321/railway?useSSL=false&serverTimezone=America/Sao_Paulo&useUnicode=true&characterEncoding=UTF-8
     username: ${DB_USER}
     password: ${DB_PASS}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
-        pool-name: hikari-railway
+      pool-name: hikari-railway
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -19,3 +20,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+
+  jackson:
+    time-zone: America/Sao_Paulo
+    date-format: dd/MM/yyyy HH:mm:ss
+
