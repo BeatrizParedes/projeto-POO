@@ -1,0 +1,86 @@
+<div class="pagina">
+  <header class="topo">
+    <h1 class="titulo">Minha Lista de Desejos</h1>
+
+    <form class="usuario-form" (ngSubmit)="carregar()">
+      <label for="usuario" class="sr-only">Nome do usuário</label>
+      <input
+        id="usuario"
+        type="text"
+        class="usuario-input"
+        placeholder="Seu nome de usuário"
+        [formControl]="nomeUsuarioCtrl"
+        autocomplete="username"
+      />
+      <button class="btn primario" type="submit">Carregar</button>
+      <button class="btn leve" type="button" (click)="limparUsuario()">Limpar</button>
+    </form>
+  </header>
+
+  <section *ngIf="loading" class="estado loading" aria-live="polite">
+    Carregando sua lista…
+  </section>
+
+  <section *ngIf="!loading && errorMsg" class="estado erro" role="alert">
+    {{ errorMsg }}
+  </section>
+
+  <section *ngIf="!loading && !errorMsg" class="conteudo">
+    <div *ngIf="total === 0" class="estado vazio">
+      <p>Nenhum item por aqui ainda.</p>
+      <p class="hint">Dica: visite a página de um livro e clique em “Adicionar à lista de desejos”.</p>
+    </div>
+
+    <div *ngIf="total > 0" class="lista">
+      <div class="lista-header">
+        <span class="quantidade" aria-live="polite">
+          {{ total }} {{ total === 1 ? 'item' : 'itens' }}
+        </span>
+      </div>
+
+      <ul class="grid" role="list">
+        <!-- ✅ trackBy agora é função -->
+        <li class="card" *ngFor="let item of itens; trackBy: trackById">
+          <img
+            class="capa"
+            [src]="capa(item.livro)"
+            [alt]="titulo(item.livro) || 'Capa do livro'"
+            loading="lazy"
+          />
+
+          <div class="info">
+            <h2 class="titulo-livro">{{ titulo(item.livro) }}</h2>
+            <p class="autor" *ngIf="autor(item.livro)">de {{ autor(item.livro) }}</p>
+            <p class="avaliacao" *ngIf="avaliacao(item.livro) as nota">
+              ★ {{ nota | number:'1.1-1' }}/5
+            </p>
+
+            <div class="acoes">
+              <button
+                class="btn leve"
+                type="button"
+                (click)="verDetalhes(idLivro(item.livro))"
+                [disabled]="isRemovendo(item.id)"
+                [attr.aria-label]="'Ver detalhes do livro ' + titulo(item.livro)"
+              >
+                Detalhes
+              </button>
+
+              <button
+                class="btn perigo"
+                type="button"
+                (click)="remover(item)"
+                [disabled]="isRemovendo(item.id)"
+                [attr.aria-busy]="isRemovendo(item.id)"
+                [attr.aria-label]="'Remover ' + titulo(item.livro) + ' da lista de desejos'"
+              >
+                <span *ngIf="!isRemovendo(item.id)">Remover</span>
+                <span *ngIf="isRemovendo(item.id)">Removendo…</span>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>

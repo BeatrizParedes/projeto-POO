@@ -20,8 +20,17 @@ export const routes: Routes = [
     component: ResultadoBuscaComponent,
     title: 'Findme | Resultado da Busca'
   },
+
+  // ✅ NOVO: Lista de Desejos (lazy)
+ {
+  path: 'lista-desejos',
+  loadComponent: () =>
+    import('./pages/lista-desejos/lista-desejos.component')
+      .then(m => m.ListaDesejosComponent),
+  title: 'Findme | Lista de Desejos'
+},
+
   {
-  
     path: 'livro-detalhes/:id',
     loadComponent: () =>
       import('./pages/livro-detalhes/livro-detalhes.component')
