@@ -6,12 +6,10 @@ spring:
     name: demo
 
   datasource:
-    url: jdbc:mysql://shinkansen.proxy.rlwy.net:40321/railway?useSSL=false&serverTimezone=America/Sao_Paulo&useUnicode=true&characterEncoding=UTF-8
-    username: ${DB_USER}
-    password: ${DB_PASS}
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      pool-name: hikari-railway
+    url: jdbc:h2:mem:meubanco
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ""
 
   jpa:
     hibernate:
@@ -19,9 +17,13 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
   jackson:
     time-zone: America/Sao_Paulo
     date-format: dd/MM/yyyy HH:mm:ss
-
