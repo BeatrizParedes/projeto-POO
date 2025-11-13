@@ -21,29 +21,25 @@ import { SessaoLivrosComponent } from '../../components/sessao-livros/sessao-liv
 })
 export class HomeComponent implements OnInit {
 
+  // Mantemos só um agrupador
   novidades: Livro[] = [];
-  ultimasCompras: Livro[] = [];
-  sugestoes: Livro[] = [];
 
   filtroGenero: string = '';
   filtroPrecoMax?: number;
   carregandoNovidades = false;
   erroNovidades = '';
 
-
   generos = ['Fantasia', 'Romance', 'Terror', 'Educacional', 'Outros'];
 
   constructor(private livrosApi: LivroService) {}
 
   ngOnInit(): void {
+    // agora o observable popula apenas 'novidades'
     this.livrosApi.livros$.subscribe(lista => {
-      this.novidades = lista.slice(0, 6);
-      this.ultimasCompras = lista.slice(6, 12);
-      this.sugestoes = lista.slice(12, 18);
+      this.novidades = lista;
     });
 
-    this.livrosApi.listar().subscribe();
-    
+    this.livrosApi.listar().subscribe();  
   }
 
   aplicarFiltrosNovidades(): void {
@@ -57,7 +53,7 @@ export class HomeComponent implements OnInit {
 
     this.livrosApi.buscar({ genero, preco }).subscribe({
       next: lista => {
-        this.novidades = lista.slice(0, 6); 
+        this.novidades = lista; 
         this.carregandoNovidades = false;
       },
       error: err => {
@@ -76,7 +72,7 @@ export class HomeComponent implements OnInit {
 
     this.livrosApi.listar().subscribe({
       next: lista => {
-        this.novidades = lista.slice(0, 6);
+        this.novidades = lista;
         this.carregandoNovidades = false;
       },
       error: () => {

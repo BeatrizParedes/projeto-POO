@@ -10,7 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/lista-desejos")
-@CrossOrigin(origins = "http://localhost:4200") // permite o Angular acessar
+@CrossOrigin(
+    origins = "http://localhost:4200",
+    methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT, RequestMethod.OPTIONS}
+)
 public class ListaDesejosController {
 
     @Autowired
@@ -31,9 +34,21 @@ public class ListaDesejosController {
         return ResponseEntity.ok(lista);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> remover(@PathVariable Long id) {
-        listaDesejosService.remover(id);
+    @DeleteMapping("/remover/{id}")
+    public ResponseEntity<Void> remover(
+        @PathVariable Long id,
+        @RequestParam String nomeUsuario) {
+
+        listaDesejosService.remover(id, nomeUsuario);
         return ResponseEntity.noContent().build();
     }
+
+    @DeleteMapping("/remover-por-livro/{livroId}")
+    public ResponseEntity<Void> removerPorLivro(
+            @PathVariable Long livroId,
+            @RequestParam String nomeUsuario) {
+        listaDesejosService.removerPorLivro(livroId, nomeUsuario);
+        return ResponseEntity.noContent().build();
+    }
+
 }

@@ -1,4 +1,14 @@
 <div class="card-livro">
+  <!-- Botão de coração -->
+  <button
+    class="heart-btn"
+    [class.favorito]="favorito"
+    (click)="toggleFavorito()"
+    aria-label="Marcar como favorito">
+    <i class="fa-solid fa-heart" *ngIf="favorito"></i>
+    <i class="fa-regular fa-heart" *ngIf="!favorito"></i>
+  </button>
+
   <h3>{{ titulo }}</h3>
   <p class="preco">R$ {{ precoFormatado }}</p>
 

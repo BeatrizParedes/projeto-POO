@@ -32,11 +32,7 @@
   <div *ngIf="erroNovidades" style="margin-top:8px; color:#c00;">{{ erroNovidades }}</div>
 </section>
 
-
-<app-sessao-livros [titulo]="'Novidades'" [livros]="novidades"></app-sessao-livros>
-
-<app-sessao-livros [titulo]="'Últimas Compras'" [livros]="ultimasCompras"></app-sessao-livros>
-
-<app-sessao-livros [titulo]="'Sugestões para você'" [livros]="sugestoes"></app-sessao-livros>
+<!-- Apenas um agrupador -->
+<app-sessao-livros [titulo]="'Livros disponíveis'" [livros]="novidades"></app-sessao-livros>
 
 <app-footer></app-footer>
