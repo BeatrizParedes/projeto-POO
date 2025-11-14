@@ -13,6 +13,7 @@
   --shadow: 0 2px 10px rgba(0,0,0,.08);
 }
 
+/* RESET & BASE */
 *,
 *::before,
 *::after { box-sizing: border-box; }
@@ -32,6 +33,9 @@
   padding: 20px;
 }
 
+/* ============================
+   TOPO / FORM USUÁRIO
+============================ */
 .topo {
   max-width: 1000px;
   margin: 0 auto 16px;
@@ -68,6 +72,7 @@
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--cor-prim) 20%, transparent);
 }
 
+/* BOTÕES */
 .btn {
   border: 0;
   border-radius: 25px;
@@ -106,6 +111,9 @@
   background: #ffdcd7;
 }
 
+/* ============================
+   ESTADOS
+============================ */
 .estado {
   max-width: 1000px;
   margin: 10px auto;
@@ -115,6 +123,9 @@
 .estado.erro { color: var(--cor-erro); font-weight: 600; }
 .estado.vazio .hint { color: var(--cor-suave); }
 
+/* ============================
+   CONTEÚDO
+============================ */
 .conteudo {
   max-width: 1000px;
   margin: 0 auto;
@@ -132,68 +143,157 @@
   color: var(--cor-texto);
 }
 
-.grid {
+/* ============================
+   NOVO LAYOUT — CARDS DA LISTA
+============================ */
+
+.lista-livros {
   list-style: none;
-  padding: 0; margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+  padding: 0;
+  margin: 0;
 }
 
-.card {
-  background: var(--cor-card);
+.livro-card {
+  background: #fff;
+  padding: 22px;
+  margin: 20px auto;
   border-radius: var(--radius-md);
+  max-width: 750px;
   box-shadow: var(--shadow);
-  display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 12px;
-  padding: 12px;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
-.capa {
-  width: 92px; height: 132px;
-  border-radius: var(--radius-sm);
-  object-fit: cover;
-  box-shadow: 0 1px 6px rgba(0,0,0,.12);
+.livro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 18px rgba(0,0,0,.12);
 }
 
-.info {
-  display: grid;
-  gap: 6px;
-}
-
-.titulo-livro {
-  font-size: 16px;
+.livro-info h3,
+.livro-titulo {
+  margin: 0 0 10px 0;
+  font-size: 18px;
   font-weight: 700;
-  margin: 2px 0 0;
+  color: var(--cor-texto);
 }
 
-.autor {
-  font-size: 13px;
+.livro-info p {
+  margin: 4px 0;
+  font-size: 14px;
   color: var(--cor-suave);
-  margin: -2px 0 0;
 }
 
-.avaliacao {
-  font-size: 13px;
-  color: #555;
+.livro-info strong {
+  color: var(--cor-texto);
 }
 
-.acoes {
-  margin-top: 6px;
+.livro-actions {
   display: flex;
-  gap: 8px;
+  gap: 12px;
+  margin-top: 16px;
   flex-wrap: wrap;
 }
 
+.livro-actions .btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Botão remover */
+.livro-actions .btn.perigo {
+  background: #ffe9e6;
+  color: var(--cor-erro);
+  border: 1px solid #ffd0ca;
+}
+.livro-actions .btn.perigo:hover {
+  background: #ffdcd7;
+}
+
+/* ============================
+   RESPONSIVO
+============================ */
 @media (max-width: 560px) {
-  .card {
-    grid-template-columns: 1fr;
-    text-align: center;
+  .livro-card {
+    padding: 18px;
   }
-  .capa {
-    justify-self: center;
-    width: min(44vw, 180px);
-    height: auto;
+
+  .livro-actions {
+    flex-direction: column;
+    align-items: stretch;
   }
+}
+/* ====================
+   CARD MAIS VISÍVEL E BONITO
+==================== */
+
+.livro-card {
+  width: 100%;
+  max-width: 750px;
+  background: #ffffff;
+  padding: 28px 32px;
+  border-radius: 14px;
+
+  /* SOMBRA SEMPRE VISÍVEL */
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.12);
+
+  /* Removendo hover exagerado */
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.livro-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* TÍTULO DO LIVRO */
+.livro-titulo {
+  margin-bottom: 12px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+/* TEXTO */
+.livro-info p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.livro-info strong {
+  color: #1f2d3d;
+}
+
+/* AÇÕES DO CARD */
+.livro-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+}
+
+/* BOTÃO VER DETALHES (deixar igual ao da busca) */
+.livro-actions .btn.primario {
+  background: #e37227 !important; /* laranja forte */
+  color: #ffffff !important;      /* texto branco */
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+.livro-actions .btn.primario:hover {
+  background: #cf671f !important;
+}
+
+/* BOTÃO REMOVER */
+.livro-actions .btn.perigo {
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+.lista-livros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 20px;
 }

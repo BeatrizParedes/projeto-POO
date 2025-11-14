@@ -9,6 +9,8 @@ export interface Livro {
   autor?: string;
   preco?: number;
   imagemUrl?: string;
+  genero?: string;
+  descricao?: string;
 }
 
 export interface ListaDesejo {
@@ -21,7 +23,10 @@ export interface ListaDesejo {
   providedIn: 'root',
 })
 export class ListaDesejosService {
+  
   private apiUrl = 'http://localhost:8080/api/lista-desejos';
+
+  // Contador global de favoritos
   private countSubject = new BehaviorSubject<number>(0);
   count$ = this.countSubject.asObservable();
 
@@ -29,11 +34,13 @@ export class ListaDesejosService {
 
   /** 🔍 Lista todos os livros da lista de desejos do usuário */
   listar(nomeUsuario: string): Observable<ListaDesejo[]> {
+    const usuarioUrl = encodeURIComponent(nomeUsuario);
+
     return this.http
-      .get<ListaDesejo[]>(`${this.apiUrl}?nomeUsuario=${encodeURIComponent(nomeUsuario)}`)
+      .get<ListaDesejo[]>(`${this.apiUrl}?nomeUsuario=${usuarioUrl}`)
       .pipe(
         tap(lista => {
-          // Sempre atualiza o contador com base no backend
+          // Atualiza contador com valor real do backend
           this.countSubject.next(lista.length);
         })
       );
@@ -41,10 +48,11 @@ export class ListaDesejosService {
 
   /** ❤️ Adiciona um livro à lista de desejos */
   adicionar(livroId: number, nomeUsuario: string): Observable<ListaDesejo> {
-    // Atualiza visualmente o contador antes da resposta
+    const usuarioUrl = encodeURIComponent(nomeUsuario);
+
+    // Atualiza visualmente antes (otimista)
     this.countSubject.next(this.countSubject.value + 1);
 
-    const usuarioUrl = encodeURIComponent(nomeUsuario);
     return this.http
       .post<ListaDesejo>(
         `${this.apiUrl}/adicionar/${livroId}?nomeUsuario=${usuarioUrl}`,
@@ -54,50 +62,49 @@ export class ListaDesejosService {
         tap({
           next: () => this.atualizarContagem(nomeUsuario),
           error: () => {
-            // Se falhar, reverte o contador
+            // Se falhar, reverte
             this.countSubject.next(Math.max(0, this.countSubject.value - 1));
           }
         })
       );
   }
 
-  /** ❌ Remove um item da lista de desejos */
-  /** ❌ Remove um item da lista de desejos */
+  /** ❌ Remove da lista de desejos usando o ID do LIVRO */
   remover(livroId: number, nomeUsuario?: string): Observable<void> {
     const usuario = nomeUsuario || localStorage.getItem('nomeUsuario') || 'Beatriz Paredes';
-    const url = `${this.apiUrl}/remover/${livroId}?nomeUsuario=${encodeURIComponent(usuario)}`;
+    const usuarioUrl = encodeURIComponent(usuario);
 
-    // Atualiza o contador visualmente antes da resposta
+    // ✔️ USANDO O ENDPOINT CORRETO:
+    const url = `${this.apiUrl}/remover-por-livro/${livroId}?nomeUsuario=${usuarioUrl}`;
+
+    // Atualiza visualmente antes (otimista)
     this.countSubject.next(Math.max(0, this.countSubject.value - 1));
 
     return this.http.delete<void>(url).pipe(
       tap({
         next: () => {
-          // Depois de remover, força sincronização com o backend
+          // Sincroniza com backend
           this.atualizarContagem(usuario);
         },
         error: () => {
           console.error('Erro ao remover item da lista.');
-          // Se falhar, restaura o contador anterior
-          this.atualizarContagem(usuario);
+          this.atualizarContagem(usuario); // Corrige contador
         }
       })
     );
   }
 
-
-  /** 🔁 Atualiza a contagem total com base real no backend */
+  /** 🔁 Atualiza valor real do contador a partir do backend */
   atualizarContagem(nomeUsuario?: string): void {
     const usuario = nomeUsuario || localStorage.getItem('nomeUsuario') || 'Beatriz Paredes';
 
-    // Pega o valor real no backend e atualiza o contador global
     this.listar(usuario).subscribe({
       next: (lista) => this.countSubject.next(lista.length),
       error: (err) => console.error('Falha ao atualizar contagem:', err),
     });
   }
 
-  /** 🧹 Força a limpeza do contador (quando necessário) */
+  /** 🧹 Limpa o contador caso necessário */
   resetarContagem(): void {
     this.countSubject.next(0);
   }

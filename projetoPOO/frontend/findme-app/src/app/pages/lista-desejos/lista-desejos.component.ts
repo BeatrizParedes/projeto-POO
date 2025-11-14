@@ -24,18 +24,27 @@ export class ListaDesejosComponent implements OnInit {
     private readonly router: Router
   ) {}
 
+  // 🔹 Mesma lógica de fallback usada no restante do app
+  private getNomeUsuarioPadrao(): string {
+    return (localStorage.getItem('nomeUsuario') || 'Beatriz Paredes').trim();
+  }
+
   ngOnInit(): void {
+    // 1) Tenta pegar da URL (?usuario=...)
     const queryUser = (this.route.snapshot.queryParamMap.get('usuario') || '').trim();
 
     if (queryUser) {
       this.nomeUsuarioCtrl.setValue(queryUser);
-      this.carregar();
+      localStorage.setItem('nomeUsuario', queryUser); // garante que fique salvo
+      this.carregar(false);
       return;
     }
 
-    const stored = (localStorage.getItem('nomeUsuario') || '').trim();
+    // 2) Se não tiver na URL, usa localStorage OU fallback padrão
+    const stored = this.getNomeUsuarioPadrao();
     if (stored) {
       this.nomeUsuarioCtrl.setValue(stored);
+      localStorage.setItem('nomeUsuario', stored);
       this.carregar(false);
     }
   }
@@ -56,6 +65,7 @@ export class ListaDesejosComponent implements OnInit {
       return;
     }
 
+    // Sempre sincroniza com localStorage
     localStorage.setItem('nomeUsuario', nomeUsuario);
 
     if (updateUrl) {
@@ -71,7 +81,9 @@ export class ListaDesejosComponent implements OnInit {
     this.svc.listar(nomeUsuario).subscribe({
       next: (res) => {
         const ordenados = [...res].sort((a, b) =>
-          this.titulo(a.livro).localeCompare(this.titulo(b.livro), 'pt-BR', { sensitivity: 'base' })
+          this.titulo(a.livro).localeCompare(this.titulo(b.livro), 'pt-BR', {
+            sensitivity: 'base',
+          })
         );
         this.itens = ordenados;
       },
@@ -85,20 +97,27 @@ export class ListaDesejosComponent implements OnInit {
   }
 
   remover(item: ListaDesejo): void {
-    if (!item.id) return;
+    // ⚠️ Agora removemos PELO ID DO LIVRO, porque o service chama /remover-por-livro/{livroId}
+    const livroId = this.idLivro(item.livro);
+    if (!livroId) return;
+
     if (!confirm(`Remover "${this.titulo(item.livro)}" da sua lista?`)) return;
 
-    this.removendo.set(item.id, true);
+    this.removendo.set(livroId, true);
 
-    const nomeUsuario = this.nomeUsuarioCtrl.value || localStorage.getItem('nomeUsuario') || '';
+    const nomeUsuario =
+      this.nomeUsuarioCtrl.value || this.getNomeUsuarioPadrao();
 
-    this.svc.remover(item.id, nomeUsuario).subscribe({
-      next: () => (this.itens = this.itens.filter((i) => i.id !== item.id)),
+    this.svc.remover(livroId, nomeUsuario).subscribe({
+      next: () => {
+        // Como o backend remove por livro, filtramos por livro também
+        this.itens = this.itens.filter((i) => this.idLivro(i.livro) !== livroId);
+      },
       error: (err) => {
         console.error(err);
         alert('Falha ao remover. Tente novamente.');
       },
-      complete: () => this.removendo.delete(item.id!),
+      complete: () => this.removendo.delete(livroId),
     });
   }
 
@@ -109,7 +128,10 @@ export class ListaDesejosComponent implements OnInit {
 
   limparUsuario(): void {
     this.nomeUsuarioCtrl.setValue('');
-    this.router.navigate([], { queryParams: { usuario: null }, queryParamsHandling: 'merge' });
+    this.router.navigate([], {
+      queryParams: { usuario: null },
+      queryParamsHandling: 'merge',
+    });
     this.itens = [];
     this.errorMsg = null;
   }
