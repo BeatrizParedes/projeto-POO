@@ -6,7 +6,7 @@ spring:
     name: demo
 
   datasource:
-    url: jdbc:h2:mem:meubanco
+    url: jdbc:h2:file:./data/meubanco
     driverClassName: org.h2.Driver
     username: sa
     password: ""

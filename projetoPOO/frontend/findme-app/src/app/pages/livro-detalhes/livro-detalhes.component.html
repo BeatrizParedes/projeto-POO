@@ -6,24 +6,28 @@
   </div>
 
   <div *ngIf="!carregando && livro" class="conteudo">
-    <h2>Parece que temos o que você procura</h2>
+    <h2>Parece que temos o que você procura: </h2>
 
     <div class="livro-container">
       
 
       <div class="info-livro">
         <h3>{{ livro.titulo }}</h3>
-        <p class="autor">{{ livro.autor }}</p>
-
+        
         <div class="avaliacao">
-          ⭐⭐⭐⭐⭐ <span>{{ livro.avaliacao }} por R$ {{ livro.preco }}</span>
+          ⭐⭐⭐⭐⭐ <span>{{ livro.avaliacao }}</span>
         </div>
 
+        <p class="autor"><strong>Autor(a):</strong> {{ livro.autor }}</p> 
+
+        <p class="preco"><strong>Preço:</strong> R$ {{ livro.preco }}</p>
+
+        <p class="genero"><strong>Gênero:</strong> {{ livro.genero }}</p>
+
+        <p class="descricao"><strong>Descrição:</strong> {{ livro.descricao }}</p>
+        
         <button class="comprar">Comprar</button>
 
-        <p class="descricao">{{ livro.descricao }}</p>
-
-        <p class="veja-mais">Veja mais</p>
       </div>
     </div>
 
@@ -37,7 +41,7 @@
         <br> COMPRE 1, LEVE 2
       </div>
 
-      <img src="assets/img/gatinho.png" class="gatinho" alt="gatinho">
+      <img src="/cat.png" class="gatinho" alt="gatinho">
     </div>
   </div>
 

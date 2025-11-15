@@ -8,12 +8,21 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String autor;
     private String titulo;
     private String genero;
     private Double preco;
     private String descricao;
 
     public Livro() {}
+
+    public String getAutor(){
+        return autor;
+    }
+    
+    public void setAutor(String autor){
+        this.autor = autor;
+    }
 
     public Long getId(){
         return id;
