@@ -61,6 +61,7 @@
    3. Atualização do [Screencast](https://youtu.be/ewfcZKHVXbI?si=H3P63e3rHBAb0kmN) da navegação entre as telas das histórias implementadas.
 6. ✖️ Entrega 4
    1. Atualização do [Screencast](https://youtu.be/UGPAwZkVIEk?si=qliUNCfaPqrmofIg) de teste integração.
+   2. Atualização do [Screencast](https://youtu.be/ZYhXpy69eW8?si=JhpCGpGmxALYXGjr) de teste unitário.
 
 
 ### Equipe e Contato
