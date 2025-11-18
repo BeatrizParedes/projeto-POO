@@ -1,4 +1,4 @@
-/* ===== FILTRO DE NOVIDADES ===== */
+
 .filtro-novidades {
   background-color: transparent;
   border: none;
@@ -13,13 +13,13 @@
   align-items: flex-end;
   flex-wrap: wrap;
   justify-content: center;
-  background: none; /* remove fundo */
-  border: none; /* remove borda */
-  box-shadow: none; /* remove sombra */
+  background: none; 
+  border: none; 
+  box-shadow: none; 
   padding: 0;
 }
 
-/* Inputs */
+
 .filtro-novidades input {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -36,7 +36,7 @@
   outline: none;
 }
 
-/* Labels */
+
 .filtro-novidades label {
   font-weight: 600;
   color: #333;
@@ -44,7 +44,7 @@
   font-size: 14px;
 }
 
-/* Botões */
+
 .filtro-novidades button {
   border: none;
   border-radius: 8px;
@@ -72,7 +72,7 @@
   background-color: #eaeaea;
 }
 
-/* Mensagens de feedback */
+
 .filtro-novidades div[ngIf] {
   text-align: center;
   font-size: 14px;
@@ -83,7 +83,7 @@
   color: #b40000 !important;
 }
 
-/* Responsividade */
+
 @media (max-width: 600px) {
   .filtro-novidades form {
     flex-direction: column;

@@ -24,23 +24,23 @@ export class ListaDesejosComponent implements OnInit {
     private readonly router: Router
   ) {}
 
-  // 🔹 Mesma lógica de fallback usada no restante do app
+  
   private getNomeUsuarioPadrao(): string {
     return (localStorage.getItem('nomeUsuario') || 'Beatriz Paredes').trim();
   }
 
   ngOnInit(): void {
-    // 1) Tenta pegar da URL (?usuario=...)
+    
     const queryUser = (this.route.snapshot.queryParamMap.get('usuario') || '').trim();
 
     if (queryUser) {
       this.nomeUsuarioCtrl.setValue(queryUser);
-      localStorage.setItem('nomeUsuario', queryUser); // garante que fique salvo
+      localStorage.setItem('nomeUsuario', queryUser); 
       this.carregar(false);
       return;
     }
 
-    // 2) Se não tiver na URL, usa localStorage OU fallback padrão
+    
     const stored = this.getNomeUsuarioPadrao();
     if (stored) {
       this.nomeUsuarioCtrl.setValue(stored);
@@ -65,7 +65,7 @@ export class ListaDesejosComponent implements OnInit {
       return;
     }
 
-    // Sempre sincroniza com localStorage
+    
     localStorage.setItem('nomeUsuario', nomeUsuario);
 
     if (updateUrl) {
@@ -97,7 +97,7 @@ export class ListaDesejosComponent implements OnInit {
   }
 
   remover(item: ListaDesejo): void {
-    // ⚠️ Agora removemos PELO ID DO LIVRO, porque o service chama /remover-por-livro/{livroId}
+    
     const livroId = this.idLivro(item.livro);
     if (!livroId) return;
 
@@ -110,7 +110,7 @@ export class ListaDesejosComponent implements OnInit {
 
     this.svc.remover(livroId, nomeUsuario).subscribe({
       next: () => {
-        // Como o backend remove por livro, filtramos por livro também
+        
         this.itens = this.itens.filter((i) => this.idLivro(i.livro) !== livroId);
       },
       error: (err) => {

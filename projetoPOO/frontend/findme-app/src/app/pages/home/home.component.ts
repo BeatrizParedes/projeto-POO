@@ -21,7 +21,7 @@ import { SessaoLivrosComponent } from '../../components/sessao-livros/sessao-liv
 })
 export class HomeComponent implements OnInit {
 
-  // Mantemos só um agrupador
+  
   novidades: Livro[] = [];
 
   filtroGenero: string = '';
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   constructor(private livrosApi: LivroService) {}
 
   ngOnInit(): void {
-    // agora o observable popula apenas 'novidades'
+    
     this.livrosApi.livros$.subscribe(lista => {
       this.novidades = lista;
     });

@@ -17,7 +17,7 @@ export class CardLivroComponent implements OnInit {
   @Input() acao: string = 'Ver detalhes';
 
   favorito: boolean = false;
-  idListaDesejo?: number; // ID do item salvo no backend
+  idListaDesejo?: number; 
 
   constructor(private listaDesejosService: ListaDesejosService) {}
 
@@ -48,26 +48,26 @@ export class CardLivroComponent implements OnInit {
   const nomeUsuario = localStorage.getItem('nomeUsuario') || 'Beatriz Paredes';
   const estadoAnterior = this.favorito;
 
-  // ⚡ Atualiza visualmente na hora
+  
   this.favorito = !this.favorito;
 
   if (this.favorito) {
-    // Tenta adicionar no backend
+    
     this.listaDesejosService.adicionar(this.id, nomeUsuario).subscribe({
       next: () => {},
       error: (err) => {
         console.error('Erro ao adicionar à lista de desejos:', err);
-        // ❌ Reverte se falhar
+        
         this.favorito = estadoAnterior;
       }
     });
   } else {
-    // Tenta remover no backend
+    
     this.listaDesejosService.remover(this.id, nomeUsuario).subscribe({
       next: () => {},
       error: (err) => {
         console.error('Erro ao remover da lista de desejos:', err);
-        // ❌ Reverte se falhar
+        
         this.favorito = estadoAnterior;
       }
     });

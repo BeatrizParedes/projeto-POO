@@ -14,6 +14,6 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withInMemoryScrolling({ scrollPositionRestoration: 'top' })
     ),
-    provideHttpClient() // ✅ Isso substitui o HttpClientModule
+    provideHttpClient() 
   ]
 };

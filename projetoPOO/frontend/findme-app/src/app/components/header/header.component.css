@@ -154,7 +154,7 @@
 }
 
 .fa-heart.fa-solid {
-  color: #ff6b6b; /* vermelho quando tiver itens */
+  color: #ff6b6b; 
 }
 
 .wishlist:hover .fa-heart {
@@ -175,7 +175,7 @@
   text-align: center;
 }
 
-/* Alinhamento visual do botão e coração */
+
 .nav-actions {
   display: flex;
   align-items: center;

@@ -13,7 +13,7 @@
   --shadow: 0 2px 10px rgba(0,0,0,.08);
 }
 
-/* RESET & BASE */
+
 *,
 *::before,
 *::after { box-sizing: border-box; }
@@ -33,9 +33,9 @@
   padding: 20px;
 }
 
-/* ============================
-   TOPO / FORM USUÁRIO
-============================ */
+
+   
+
 .topo {
   max-width: 1000px;
   margin: 0 auto 16px;
@@ -72,7 +72,7 @@
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--cor-prim) 20%, transparent);
 }
 
-/* BOTÕES */
+
 .btn {
   border: 0;
   border-radius: 25px;
@@ -111,9 +111,9 @@
   background: #ffdcd7;
 }
 
-/* ============================
-   ESTADOS
-============================ */
+
+   
+
 .estado {
   max-width: 1000px;
   margin: 10px auto;
@@ -123,9 +123,9 @@
 .estado.erro { color: var(--cor-erro); font-weight: 600; }
 .estado.vazio .hint { color: var(--cor-suave); }
 
-/* ============================
-   CONTEÚDO
-============================ */
+
+   
+
 .conteudo {
   max-width: 1000px;
   margin: 0 auto;
@@ -143,9 +143,9 @@
   color: var(--cor-texto);
 }
 
-/* ============================
-   NOVO LAYOUT — CARDS DA LISTA
-============================ */
+
+   
+
 
 .lista-livros {
   list-style: none;
@@ -209,9 +209,9 @@
   background: #ffdcd7;
 }
 
-/* ============================
-   RESPONSIVO
-============================ */
+
+   
+
 @media (max-width: 560px) {
   .livro-card {
     padding: 18px;
@@ -222,9 +222,9 @@
     align-items: stretch;
   }
 }
-/* ====================
-   CARD MAIS VISÍVEL E BONITO
-==================== */
+
+   
+
 
 .livro-card {
   width: 100%;
@@ -233,10 +233,10 @@
   padding: 28px 32px;
   border-radius: 14px;
 
-  /* SOMBRA SEMPRE VISÍVEL */
+  
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.12);
 
-  /* Removendo hover exagerado */
+  
   transition: transform .12s ease, box-shadow .12s ease;
 }
 
@@ -245,7 +245,7 @@
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.18);
 }
 
-/* TÍTULO DO LIVRO */
+
 .livro-titulo {
   margin-bottom: 12px;
   font-size: 19px;
@@ -253,7 +253,7 @@
   color: #1f2d3d;
 }
 
-/* TEXTO */
+
 .livro-info p {
   margin: 4px 0;
   font-size: 15px;
@@ -264,17 +264,17 @@
   color: #1f2d3d;
 }
 
-/* AÇÕES DO CARD */
+
 .livro-actions {
   margin-top: 18px;
   display: flex;
   gap: 12px;
 }
 
-/* BOTÃO VER DETALHES (deixar igual ao da busca) */
+
 .livro-actions .btn.primario {
-  background: #e37227 !important; /* laranja forte */
-  color: #ffffff !important;      /* texto branco */
+  background: #e37227 !important; 
+  color: #ffffff !important;      
   font-size: 14px;
   padding: 10px 18px;
   border-radius: 8px;
@@ -284,7 +284,7 @@
   background: #cf671f !important;
 }
 
-/* BOTÃO REMOVER */
+
 .livro-actions .btn.perigo {
   font-size: 14px;
   padding: 10px 18px;

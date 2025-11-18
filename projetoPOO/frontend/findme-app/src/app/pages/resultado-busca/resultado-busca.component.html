@@ -10,7 +10,7 @@
     <p>{{ erro }}</p>
   </div>
 
-  <!-- ✅ Agora exibe os livros um abaixo do outro -->
+  
   <div *ngIf="!carregando && livros.length > 0 && !erro" class="lista-livros">
     <div *ngFor="let livro of livros" class="card-livro">
       <h3>{{ livro.titulo }}</h3>

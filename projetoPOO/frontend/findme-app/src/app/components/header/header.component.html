@@ -1,5 +1,5 @@
 <header class="header-container">
-  <!-- 🔍 Campo de busca -->
+  
   <div class="search-wrapper">
     <input
       type="text"
@@ -13,12 +13,12 @@
     </button>
   </div>
 
-  <!-- 📚 Botões à direita -->
+  
   <nav class="nav-actions">
-    <!-- Botão de cadastro -->
+    
     <button class="btn-cadastrar" (click)="abrirCadastro()">Cadastrar Livro</button>
 
-    <!-- ❤️ Ícone de lista de desejos -->
+    
     <div class="wishlist" (click)="abrirListaDesejos()" title="Ver lista de desejos">
       <i
         class="fa-heart"
@@ -29,7 +29,7 @@
 </div>
   </nav>
 
-  <!-- 👤 Informações do usuário -->
+  
   <div class="user-info">
     <div class="user-details">
       <span class="username">Beatriz Paredes</span>
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <!-- ⚙️ Status de carregamento -->
+  
   <div class="status-area">
     <div *ngIf="carregando" class="carregando">
       <span class="material-icons spin">autorenew</span>

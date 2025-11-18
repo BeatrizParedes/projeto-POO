@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative; /* necessário pro botão posicionar */
+  position: relative; 
 }
 
 .card-livro:hover {
@@ -49,7 +49,7 @@
   background-color: #b5421e;
 }
 
-/* ❤️ botão de coração */
+
 .heart-btn {
   position: absolute;
   top: 10px;

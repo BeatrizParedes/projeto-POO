@@ -27,17 +27,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const nomeUsuario = localStorage.getItem('nomeUsuario') || 'Beatriz Paredes';
 
-    // 🔄 Escuta mudanças do contador (agora instantâneo)
+    
     this.sub = this.listaDesejosService.count$.subscribe(count => {
       this.countDesejos = count;
     });
 
-    // 🔹 Garante que o contador seja inicializado corretamente ao abrir o app
+    
     this.listaDesejosService.atualizarContagem(nomeUsuario);
   }
 
   ngOnDestroy(): void {
-    // evita vazamento de memória
+    
     if (this.sub) this.sub.unsubscribe();
   }
 
